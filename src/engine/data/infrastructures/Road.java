@@ -28,9 +28,9 @@ public class Road extends Transport{
 
     @Override
     public String toString() {
-        return "Road{" +
-                "mileage=" + mileage +
-                ", coverage=" + coverage +
-                "} " + super.toString();
+        return  super.toString () +
+                "\nmileage=" + mileage +
+                "\ncoverage=" + coverage +
+                "}" ;
     }
 }

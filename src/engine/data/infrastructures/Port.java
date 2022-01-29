@@ -18,8 +18,8 @@ public class Port extends Transport {
 
     @Override
     public String toString() {
-        return "Port{" +
-                "totalPorts=" + totalPorts +
-                "} " + super.toString();
+        return  super.toString () +
+                "\ntotalPorts=" + totalPorts +
+                "}" ;
     }
 }

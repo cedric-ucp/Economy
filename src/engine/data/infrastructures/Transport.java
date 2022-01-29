@@ -34,16 +34,18 @@ public abstract class Transport {
     }
 
     public boolean isModern() {
-        return modern;
+        return modern ;
+    }
+    public String getType (){
+        return type ;
     }
 
     @Override
-    public String toString() {
-        return "Transport{" +
-                "type='" + type + '\'' +
-                ", modern=" + modern +
-                ", costBuilding=" + costBuilding +
-                ", traffic=" + traffic +
-                '}';
+    public String toString () {
+        return "\nTransport{" +
+                "\ntype='" + type + '\'' +
+                "\nmodern=" + modern +
+                "\ncostBuilding=" + costBuilding +
+                "\ntraffic=" + traffic ;
     }
 }

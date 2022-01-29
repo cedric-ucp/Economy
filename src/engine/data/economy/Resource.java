@@ -1,19 +1,21 @@
 package engine.data.economy;
 
+import engine.config.Config;
+
 public class Resource {
-    private String resourceType;
+    private Config.typeResource resourceType;
     private double percentage ;
 
-    public Resource(String type, double percentage) {
+    public Resource(Config.typeResource type, double percentage) {
         this.resourceType = type;
         this.percentage = percentage;
     }
 
-    public String getResourceType() {
+    public Config.typeResource getResourceType() {
         return resourceType;
     }
 
-    public void setResourceType (String resourceType) {
+    public void setResourceType (Config.typeResource resourceType) {
         this.resourceType = resourceType;
     }
 
@@ -24,15 +26,15 @@ public class Resource {
     public void setPercentage(double percentage) {
         this.percentage = percentage;
     }
-    public boolean isTypeOf (String resourceType){
+    public boolean isTypeOf (Config.typeResource resourceType){
         return this.resourceType.equals (resourceType) ;
     }
 
     @Override
     public String toString() {
-        return "Resource{" +
-                "resourceType='" + resourceType + '\'' +
-                ", percentage=" + percentage +
-                '}';
+        return "\n\nResources{" +
+                "\nresourceType = " + resourceType + '\'' +
+                "\npercentage = " + percentage +
+                "}\n" ;
     }
 }

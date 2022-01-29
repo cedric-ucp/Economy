@@ -1,12 +1,14 @@
 package engine.data.economy;
 
+import engine.config.Config;
+
 public class Company{
     private long numberStaff ;
-    private String sector  ;
+    private Config.diffSector sector  ;
     private long turnover ;
     private int totalCompany ;
 
-    public Company (int numberStaff , String sector , int turnover , int totalCompany) {
+    public Company (int numberStaff , Config.diffSector sector , long turnover , int totalCompany) {
         this.numberStaff = numberStaff ;
         this.sector = sector ;
         this.turnover = turnover ;
@@ -21,11 +23,11 @@ public class Company{
         this.numberStaff = numberStaff;
     }
 
-    public String getSector() {
+    public Config.diffSector getSector() {
         return sector;
     }
 
-    public void setSector(String sector) {
+    public void setSector(Config.diffSector sector) {
         this.sector = sector;
     }
 
@@ -47,14 +49,14 @@ public class Company{
 
     @Override
     public String toString() {
-        return "Company" +
-                "numberStaff = " + numberStaff +
-                ", sector = '" + sector + '\'' +
-                ", turnover = " + turnover +
-                ", totalCompany = " + totalCompany +
-                '}';
+        return "\nCompany{" +
+                "\nnumberStaff = " + numberStaff +
+                "\nsector = '" + sector + '\'' +
+                "\nturnover = " + turnover +
+                "\ntotalCompany = " + totalCompany +
+                "}\n";
     }
-    public boolean companySectorOf (String sector){
+    public boolean companySectorOf (Config.diffSector sector){
         return this.sector.equals (sector) ;
     }
 }

@@ -11,9 +11,9 @@ public class Config {
         return (long) (Math.random() * (max + 1 - min)) + min ;
     }
 
-    public static enum countryName {CAMEROON , MOROCCO , ALGERIA , CONGO , FRANCE , TUNISIA}
-    public static enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS}
-    public static enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}
+    public enum countryName {CAMEROON , MOROCCO , ALGERIA , CONGO , FRANCE , TUNISIA}
+    public enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS , COBALT}
+    public enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}
     public static int maxCountry = getRandomNumber (5 , 10) ;
     public static int maxCompany = getRandomNumber (8 , 10) ;
     public static long countryArea = getRandomNumber (20000 , 80000) ;

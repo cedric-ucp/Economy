@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Country {
-    private long population ;
-    private Map<String , Resource> resources = new HashMap<String , Resource>() ;
     private Config.countryName countryName ;
+    private long population ;
+    private final Map<Config.typeResource, Resource> resources = new HashMap <> () ;
     private Economy economy ;
     private long countryArea ;
 
@@ -34,7 +34,7 @@ public class Country {
         resources.put (resource.getResourceType() , resource) ;
     }
 
-    public Map<String, Resource> getResources() {
+    public Map<Config.typeResource, Resource> getResources() {
         return resources;
     }
 
@@ -63,4 +63,12 @@ public class Country {
     }
 
 
+    @Override
+    public String toString() {
+        return "\n\ncountryName = " + countryName +
+                "\npopulation = " + population + "\n" +
+                resources + economy +
+                "\ncountryArea = " + countryArea +
+                "\n\n----------------------------------------\n\n" ;
+    }
 }

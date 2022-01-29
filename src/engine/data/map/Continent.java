@@ -6,10 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Continent {
+    private String continentName ;
     private final Map <Config.countryName , Country> countries = new HashMap <> () ;
     private final int numberCountry ;
 
-    public Continent (int numberCountry){
+    public Continent (int numberCountry , String continentName){
+        this.continentName = continentName ;
         this.numberCountry = numberCountry ;
     }
 
@@ -23,5 +25,13 @@ public class Continent {
 
     public int getNumberCountry() {
         return numberCountry;
+    }
+
+    public String toString() {
+        return "\nContinent{" +
+                "\ncontinentName = " + continentName + '\'' +
+                "\nnumberCountry = " + numberCountry + "\n" +
+                countries +
+                '}';
     }
 }

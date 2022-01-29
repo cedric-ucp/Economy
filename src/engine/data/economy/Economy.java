@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Economy {
-    private List<Transport> transports = new ArrayList <Transport> () ;
+    private List <Transport> transports = new ArrayList <> () ;
     private long pib ;
     private double stockExchange ;
-    private List <Company> companies = new ArrayList <Company> () ;
+    private List <Company> companies = new ArrayList <> () ;
     private long debt ;
 
     public Economy (int pib , double stockExchange , int debt) {
@@ -18,7 +18,7 @@ public class Economy {
         this.debt = debt;
     }
 
-    public List<Transport> getTransports() {
+    public List <Transport> getTransports() {
         return transports;
     }
 
@@ -46,7 +46,7 @@ public class Economy {
         return companies;
     }
 
-   public void addCountry (Company company){
+   public void addCompany (Company company){
         companies.add (company) ;
    }
 
@@ -58,4 +58,14 @@ public class Economy {
         this.debt = debt;
     }
 
+    @Override
+    public String toString() {
+        return "\nEconomy : \n{" +
+                transports.toString () +
+                "\npib = " + pib +
+                "\nstockExchange = " + stockExchange + "\n" +
+                companies.toString () +
+                "\ndebt = " + debt +
+                "}\n" ;
+    }
 }

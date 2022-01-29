@@ -18,8 +18,6 @@ public class Airport extends Transport {
 
     @Override
     public String toString() {
-        return "Airport{" +
-                "totalAiports=" + totalAiports +
-                "} " + super.toString() ;
+        return super.toString () + "\ntotalAiports=" + totalAiports + "}" ;
     }
 }
