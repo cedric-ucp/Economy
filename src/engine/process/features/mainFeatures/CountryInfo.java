@@ -43,7 +43,7 @@ public class CountryInfo {
         return typeResource;
     }
 
-    public String [] getTypeTransport (Economy economy){
+    public String [] getTypeTransport (){
         List <Transport> transports = country.getEconomy ().getTransports () ;
         String [] typeTransport = new String [transports.size ()] ;
         int i = 0 ;

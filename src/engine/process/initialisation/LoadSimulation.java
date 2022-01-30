@@ -17,6 +17,28 @@ public class LoadSimulation {
    Continent continent ;
    Economy economy ;
 
+    public void buildTransportEconomy(){
+        for (int i = 0 ; i < 3 ; i++){
+            switch (Config.getRandomNumber (0, 3)) {
+                case 0 -> {
+                    int mileage = Config.getRandomNumber (20000, 70000);
+                    economy.addTransport (new Road("Road", i <= 1,
+                            Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0, 1.0),
+                            mileage, (double) Config.countryArea / mileage));
+                }
+                case 1 -> economy.addTransport (new Airport("Airport", i <= 1,
+                        Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0, 1.0),
+                        Config.getRandomNumber (1, 8)));
+                case 2 -> economy.addTransport (new Port ("Port", i <= 1,
+                        Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0, 1.0),
+                        Config.getRandomNumber (2, 8)));
+                default -> {
+                }
+            }
+        }
+
+    }
+
    public void buildEconomy (){
        economy = new Economy (Config.getRandomNumber (100000 , 500000) , Config.getRandomNumberDouble
                (-2.0 , 2.0) , Config.getRandomNumber (100000 , 200000)) ;
@@ -26,31 +48,7 @@ public class LoadSimulation {
        }
    }
 
-   public void buildTransportEconomy(){
-       for (int i = 0 ; i < 3 ; i++){
-           switch (Config.getRandomNumber (0 , 3)) {
-               case 0 :
-                   int mileage = Config.getRandomNumber (20000 , 70000) ;
-                   economy.addTransport (new Road ("Road", i <= 1,
-                           Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0 , 1.0) ,
-                           mileage , (double) Config.countryArea / mileage)) ;
-                   break ;
-               case 1 :
-                   economy.addTransport (new Airport("Airport", i <= 1,
-                           Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0 , 1.0) ,
-                          Config.getRandomNumber (1 , 8))) ;
-                   break ;
-               case 2 :
-                   economy.addTransport (new Port("Port", i <= 1,
-                           Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0 , 1.0) ,
-                           Config.getRandomNumber (2 , 8))) ;
-                   break ;
-               default :
-                   break ;
-           }
-       }
 
-   }
 
    public Company buildCompany (){
        Config.diffSector [] sectors = Config.diffSector.values () ;
@@ -70,7 +68,6 @@ public class LoadSimulation {
        Config.countryName[] countryNames = Config.countryName.values () ;
        int index = Config.getRandomNumber (0 , countryNames.length - 1) ;
        buildEconomy () ;
-       buildTransportEconomy() ;
        Country country = new Country (Config.getRandomNumberLong (100000 , 200000) , countryNames [index] ,
                economy , Config.countryArea) ;
 
