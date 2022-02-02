@@ -7,6 +7,10 @@ import engine.data.economy.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @class
+ * @classdesc create Country object
+ */
 public class Country {
     private Config.countryName countryName ;
     private long population ;
@@ -14,6 +18,13 @@ public class Country {
     private Economy economy ;
     private long countryArea ;
 
+    /**
+     * Country constructor
+     * @param population {long}
+     * @param countryName {Config.countryName}
+     * @param economy {Economy}
+     * @param countryArea {long}
+     */
     public Country (long population, Config.countryName countryName, Economy economy, long countryArea){
         this.population = population;
         this.countryName = countryName;
@@ -30,6 +41,10 @@ public class Country {
         this.population = population;
     }
 
+    /**
+     * add Resource object in Resource list
+     * @param resource {Resource}
+     */
     public void addResources (Resource resource){
         resources.put (resource.getResourceType() , resource) ;
     }
@@ -65,10 +80,18 @@ public class Country {
 
     @Override
     public String toString() {
-        return "\n\ncountryName = " + countryName +
-                "\npopulation = " + population + "\n" +
+        return "\nCountry{" +
+                "\n\tcountryName = " + countryName +
+                "\n\tpopulation = " + population + "\n" +
                 resources + economy +
-                "\ncountryArea = " + countryArea +
+                "\n\tcountryArea = " + countryArea +
                 "\n\n----------------------------------------\n\n" ;
+    }
+    public String toString (int bis){
+        return "\nCountry{" +
+                "\n\tcountryName = " + countryName +
+                "\n\tpopulation = " + population +
+                "\n\tcountryArea = " + countryArea + "\n" ;
+
     }
 }

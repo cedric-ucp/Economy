@@ -7,20 +7,33 @@ import engine.data.economy.Resource;
 import engine.data.infrastructures.Transport;
 import engine.data.map.Country;
 
-import java.util.List;
-import java.util.Map;
+import java.util.List ;
+import java.util.Map ;
 
+/**
+ * @class
+ * @classdesc concentrates methods needed to produce a country’s statistics
+ */
 public class CountryStats{
     private final Country country ;
     private final Economy economy ;
     private final List <Company> companies ;
 
+    /**
+     * CountryStats constructor
+     * @param country {Country}
+     */
     public CountryStats(Country country) {
         this.country = country ;
         economy = this.country.getEconomy () ;
         companies = economy.getCompanies () ;
     }
 
+    /**
+     * return number of employees by sector
+     * @param diffSector {Config.diffSector}
+     * @return totalStaff {Integer}
+     */
     public int numberStaffBySector (String diffSector){
         int totalStaff = 0 ;
         for (Company company : companies){
@@ -31,6 +44,10 @@ public class CountryStats{
         return totalStaff ;
     }
 
+    /**
+     * return number of employees by country
+     * @return totalStaff {Integer}
+     */
     public int staffByCountry (){
         int totalStaff = 0 ;
         for (Company company : companies){
@@ -39,6 +56,11 @@ public class CountryStats{
         return totalStaff ;
     }
 
+    /**
+     * return turnover by sector
+     * @param sector {String}
+     * @return totalTurnover {long}
+     */
     public long turnoverSector (String sector){
         long totalTurnover = 0 ;
         for (Company company : companies){
@@ -49,6 +71,11 @@ public class CountryStats{
         return totalTurnover ;
     }
 
+    /**
+     * return number of company by sector
+     * @param sector {String}
+     * @return totalCompany {Integer}
+     */
     public int totalCompanyBySector (String sector){
         int totalCompany = 0 ;
         for (Company company : companies){
@@ -59,6 +86,11 @@ public class CountryStats{
         return totalCompany ;
     }
 
+    /**
+     * returns  percentage of a resource on total resources of a country
+     * @param typeResource {String}
+     * @return totalPercentage {double}
+     */
     public double getPercentageByResource (String typeResource){
         Map <Config.typeResource , Resource> resources = country.getResources () ;
         double totalPercentage = 0.0 ;
@@ -70,6 +102,10 @@ public class CountryStats{
         return totalPercentage ;
     }
 
+    /**
+     * returns a boolean that indicates whether transport is modern or not
+     * @return modern {boolean}
+     */
     public boolean modernTransports (){
         int modern = 0 ;
         int noModern = 0 ;
@@ -85,6 +121,10 @@ public class CountryStats{
         return modern >= noModern ;
     }
 
+    /**
+     * returns the total cost of building a country’s transport
+     * @return totalCost {Integer}
+     */
     public long totalCostTransport (){
         List <Transport> transports = economy.getTransports () ;
         long totalCost = 0 ;
@@ -93,6 +133,7 @@ public class CountryStats{
         }
         return totalCost ;
     }
+
     /*
     private double maxNumber (double number1 , double number2){
         return Math.max (number1, number2) ;

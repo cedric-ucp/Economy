@@ -2,18 +2,30 @@ package engine.data.economy;
 
 import engine.config.Config;
 
+/**
+ * @class
+ * @classdesc create object Company
+ */
 public class Company{
     private long numberStaff ;
     private Config.diffSector sector  ;
     private long turnover ;
     private int totalCompany ;
 
+    /**
+     * Company constructor
+     * @param numberStaff {Integer}
+     * @param sector {Config.diffSector}
+     * @param turnover {long}
+     * @param totalCompany {Integer}
+     */
     public Company (int numberStaff , Config.diffSector sector , long turnover , int totalCompany) {
         this.numberStaff = numberStaff ;
         this.sector = sector ;
         this.turnover = turnover ;
         this.totalCompany = totalCompany ;
     }
+
 
     public long getNumberStaff() {
         return numberStaff;
@@ -50,13 +62,48 @@ public class Company{
     @Override
     public String toString() {
         return "\nCompany{" +
-                "\nnumberStaff = " + numberStaff +
-                "\nsector = '" + sector + '\'' +
-                "\nturnover = " + turnover +
-                "\ntotalCompany = " + totalCompany +
-                "}\n";
+                "\n\tnumberStaff = " + numberStaff +
+                "\n\tsector = '" + sector + '\'' +
+                "\n\tturnover = " + turnover +
+                "\n\ttotalCompany = " + totalCompany +
+                "}\n" ;
     }
     public boolean companySectorOf (Config.diffSector sector){
         return this.sector.equals (sector) ;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

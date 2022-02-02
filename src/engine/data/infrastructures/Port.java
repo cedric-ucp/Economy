@@ -1,8 +1,20 @@
 package engine.data.infrastructures;
 
+/**
+ * @class
+ * @classdesc create Port object daughter class of Transport class
+ */
 public class Port extends Transport {
     private int totalPorts ;
 
+    /**
+     * Port constructor
+     * @param type {String}
+     * @param modern {boolean}
+     * @param costBuilding {Long}
+     * @param traffic {Double}
+     * @param totalPorts {Integer}
+     */
     public Port(String type, boolean modern, long costBuilding, double traffic, int totalPorts) {
         super(type, modern, costBuilding, traffic);
         this.totalPorts = totalPorts;
@@ -19,7 +31,7 @@ public class Port extends Transport {
     @Override
     public String toString() {
         return  super.toString () +
-                "\ntotalPorts=" + totalPorts +
+                "\n\ttotalPorts = " + totalPorts +
                 "}" ;
     }
 }

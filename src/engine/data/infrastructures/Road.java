@@ -1,9 +1,22 @@
 package engine.data.infrastructures;
 
+/**
+ * @class
+ * @classdesc create Road class daughter class of Transport
+ */
 public class Road extends Transport{
     private int mileage ;
     private double coverage ;
 
+    /**
+     * Road constructor
+     * @param type {String}
+     * @param modern {boolean}
+     * @param costBuilding {long}
+     * @param traffic {double}
+     * @param mileage {Integer}
+     * @param coverage {double}
+     */
     public Road(String type, boolean modern, long costBuilding, double traffic, int mileage, double coverage) {
         super(type, modern, costBuilding, traffic);
         this.mileage = mileage;
@@ -29,8 +42,8 @@ public class Road extends Transport{
     @Override
     public String toString() {
         return  super.toString () +
-                "\nmileage=" + mileage +
-                "\ncoverage=" + coverage +
+                "\n\tmileage=" + mileage +
+                "\n\tcoverage=" + coverage +
                 "}" ;
     }
 }

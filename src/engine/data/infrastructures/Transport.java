@@ -1,12 +1,23 @@
 package engine.data.infrastructures;
 
+/**
+ * @class
+ * @classdesc Abstract class Transport
+ */
 public abstract class Transport {
-    private String type ;
+    private final String type ;
     private boolean modern ;
     private long costBuilding ;
     private double traffic ;
 
-    public Transport(String type, boolean modern, long costBuilding, double traffic) {
+    /**
+     * Transport Constructor
+     * @param type {String}
+     * @param modern {boolean}
+     * @param costBuilding {long}
+     * @param traffic {double}
+     */
+    public Transport (String type, boolean modern, long costBuilding, double traffic) {
         this.type = type;
         this.modern = modern;
         this.costBuilding = costBuilding;
@@ -43,9 +54,9 @@ public abstract class Transport {
     @Override
     public String toString () {
         return "\nTransport{" +
-                "\ntype='" + type + '\'' +
-                "\nmodern=" + modern +
-                "\ncostBuilding=" + costBuilding +
-                "\ntraffic=" + traffic ;
+                "\n\ttype = '" + type + '\'' +
+                "\n\tmodern = " + modern +
+                "\n\tcostBuilding = " + costBuilding +
+                "\n\ttraffic = " + traffic ;
     }
 }

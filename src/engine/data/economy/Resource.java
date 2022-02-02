@@ -2,10 +2,19 @@ package engine.data.economy;
 
 import engine.config.Config;
 
+/**
+ * @class
+ * @classdesc create Resource object
+ */
 public class Resource {
     private Config.typeResource resourceType;
     private double percentage ;
 
+    /**
+     * Resource constructor
+     * @param type {Config.typeResource}
+     * @param percentage {Double}
+     */
     public Resource(Config.typeResource type, double percentage) {
         this.resourceType = type;
         this.percentage = percentage;
@@ -33,8 +42,8 @@ public class Resource {
     @Override
     public String toString() {
         return "\n\nResources{" +
-                "\nresourceType = " + resourceType + '\'' +
-                "\npercentage = " + percentage +
+                "\n\tresourceType = " + resourceType + '\'' +
+                "\n\tpercentage = " + percentage +
                 "}\n" ;
     }
 }

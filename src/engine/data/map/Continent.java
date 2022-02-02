@@ -5,11 +5,20 @@ import engine.config.Config;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @class
+ * @classdesc create Continent object
+ */
 public class Continent {
-    private String continentName ;
+    private final String continentName ;
     private final Map <Config.countryName , Country> countries = new HashMap <> () ;
     private final int numberCountry ;
 
+    /**
+     * Continent constructor
+     * @param numberCountry {Integer}
+     * @param continentName {String}
+     */
     public Continent (int numberCountry , String continentName){
         this.continentName = continentName ;
         this.numberCountry = numberCountry ;
@@ -19,6 +28,10 @@ public class Continent {
         return countries ;
     }
 
+    /**
+     * add country object in countries dictionary
+     * @param country {Country}
+     */
     public void addCountry (Country country){
         countries.put (country.getCountryName () , country) ;
     }
@@ -29,8 +42,8 @@ public class Continent {
 
     public String toString() {
         return "\nContinent{" +
-                "\ncontinentName = " + continentName + '\'' +
-                "\nnumberCountry = " + numberCountry + "\n" +
+                "\n\tcontinentName = " + continentName + '\'' +
+                "\n\tnumberCountry = " + numberCountry + "\n" +
                 countries +
                 '}';
     }

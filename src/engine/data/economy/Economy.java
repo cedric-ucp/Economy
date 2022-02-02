@@ -5,13 +5,23 @@ import engine.data.infrastructures.Transport;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @class
+ * @classdesc create Economy object
+ */
 public class Economy {
-    private List <Transport> transports = new ArrayList <> () ;
+    private final List <Transport> transports = new ArrayList <> () ;
     private long pib ;
     private double stockExchange ;
-    private List <Company> companies = new ArrayList <> () ;
+    private final List <Company> companies = new ArrayList <> () ;
     private long debt ;
 
+    /**
+     * Economy constructor
+     * @param pib {Integer}
+     * @param stockExchange {Double}
+     * @param debt {Integer}
+     */
     public Economy (int pib , double stockExchange , int debt) {
         this.pib = pib;
         this.stockExchange = stockExchange;
@@ -22,6 +32,10 @@ public class Economy {
         return transports;
     }
 
+    /**
+     * add Transport object in transports list
+     * @param transport {Transport}
+     */
     public void addTransport (Transport transport){
         this.transports.add (transport) ;
     }
@@ -46,6 +60,10 @@ public class Economy {
         return companies;
     }
 
+    /**
+     * add company object in companies list
+     * @param company {Company}
+     */
    public void addCompany (Company company){
         companies.add (company) ;
    }
@@ -60,12 +78,12 @@ public class Economy {
 
     @Override
     public String toString() {
-        return "\nEconomy : \n{" +
-                transports.toString () +
-                "\npib = " + pib +
-                "\nstockExchange = " + stockExchange + "\n" +
-                companies.toString () +
-                "\ndebt = " + debt +
+        return "\nEconomy{\n" +
+                transports +
+                "\n\tpib = " + pib +
+                "\n\tstockExchange = " + stockExchange + "\n" +
+                companies +
+                "\n\tdebt = " + debt +
                 "}\n" ;
     }
 }
