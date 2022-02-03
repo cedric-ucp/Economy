@@ -81,7 +81,7 @@ public class Country {
     @Override
     public String toString() {
         return "\nCountry{" +
-                "\n\tcountryName = " + countryName +
+                "\n\tcountryName = " + countryName.name () +
                 "\n\tpopulation = " + population + "\n" +
                 resources + economy +
                 "\n\tcountryArea = " + countryArea +
@@ -89,7 +89,7 @@ public class Country {
     }
     public String toString (int bis){
         return "\nCountry{" +
-                "\n\tcountryName = " + countryName +
+                "\n\tcountryName = " + countryName.name () +
                 "\n\tpopulation = " + population +
                 "\n\tcountryArea = " + countryArea + "\n" ;
 

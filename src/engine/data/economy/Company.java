@@ -63,7 +63,7 @@ public class Company{
     public String toString() {
         return "\nCompany{" +
                 "\n\tnumberStaff = " + numberStaff +
-                "\n\tsector = '" + sector + '\'' +
+                "\n\tsector = '" + sector.name () + '\'' +
                 "\n\tturnover = " + turnover +
                 "\n\ttotalCompany = " + totalCompany +
                 "}\n" ;

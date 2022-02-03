@@ -7,6 +7,7 @@ import engine.data.economy.Resource;
 import engine.data.infrastructures.Transport;
 import engine.data.map.Country;
 
+import java.util.ArrayList;
 import java.util.List ;
 import java.util.Map ;
 
@@ -18,7 +19,7 @@ public class CountryStats{
     private final Country country ;
     private final Economy economy ;
     private final List <Company> companies ;
-
+    private final List <String> sectorsCompany = new ArrayList<> () ;
     /**
      * CountryStats constructor
      * @param country {Country}
@@ -29,6 +30,19 @@ public class CountryStats{
         companies = economy.getCompanies () ;
     }
 
+    /**
+     * allows to get all economic sectors of a country
+     * @return sectorsCompany {List <String>}
+     */
+    public List <String> getAllSectorsCompany (){
+        for (Company company : companies){
+            String sector = company.getSector ().name () ;
+            if (!sectorsCompany.contains (sector)){
+                sectorsCompany.add (sector) ;
+            }
+        }
+        return sectorsCompany ;
+    }
     /**
      * return number of employees by sector
      * @param diffSector {Config.diffSector}
@@ -134,35 +148,82 @@ public class CountryStats{
         return totalCost ;
     }
 
-    /*
-    private double maxNumber (double number1 , double number2){
-        return Math.max (number1, number2) ;
-    }*/
-
-    /*
-    public String percentageMostTraffic (Economy economy){
-        List <Transport> transports = economy.getTransports () ;
-        double airportCount = 0 ;
-        double portCount = 0 ;
-        double roadCount = 0 ;
-        for (Transport transport : transports){
-            if (transport.getType ().equals ("Road")){
-                roadCount++ ;
-            }
-            else if (transport.getType ().equals ("Airport")){
-                airportCount++ ;
-            }
-            else{
-                portCount++ ;
-            }
+    /**
+     * constructs string of characters of totalStaff
+     * in an economic sector
+     * @return staffString {StringBuilder}
+     */
+    public StringBuilder staffSectorToString (){
+        StringBuilder staffString = new StringBuilder () ;
+        for (String sector : getAllSectorsCompany()){
+            staffString.append (sector).append (" : ").
+            append (numberStaffBySector (sector)).append ("\n") ;
         }
-        double getMax = maxNumber (roadCount , airportCount) ;
-        getMax = maxNumber (getMax , portCount) ;
-
-        return "" ;
+        return staffString ;
     }
-*/
+    /**
+     * constructs string of characters of totalStaff
+     * in a country
+     * @return staffString {StringBuilder}
+     */
+    public StringBuilder staffCountryString (){
+        StringBuilder staffString = new StringBuilder ("Number of employees in ") ;
+        staffString.append (country.getCountryName ().name ()).append (" : ").
+        append (staffByCountry ()).append ("\n") ;
+        return staffString ;
+    }
+    /**
+     * constructs string of characters of turnover
+     * in an economic sector
+     * @return turnoverString {StringBuilder}
+     */
+    public StringBuilder turnoverSectorString (){
+        StringBuilder turnoverString = new StringBuilder () ;
+        for (String sector : getAllSectorsCompany ()){
+            turnoverString.append (sector).append (" : ").
+            append (turnoverSector (sector)).append ("\n") ;
+        }
+        return turnoverString ;
+    }
+    /**
+     * constructs string of characters of total company
+     * in an economic sector
+     * @return totalString {StringBuilder}
+     */
+    public StringBuilder totalCompanyString (){
+        StringBuilder totalString = new StringBuilder () ;
+        for (String sector : getAllSectorsCompany ()){
+            totalString.append (sector).append (" : ").
+            append (totalCompanyBySector (sector)).append ("\n") ;
+        }
+        return totalString ;
+    }
+    /**
+     * constructs string of characters of percentage
+     * for each resource of a country
+     * @return percentageString {StringBuilder}
+     */
+    public StringBuilder percentageResourceString (){
+        StringBuilder percentageString = new StringBuilder () ;
+        for (Resource resource : country.getResources ().values ()){
+            Config.typeResource typeResource = resource.getResourceType () ;
+            percentageString.append (typeResource.name ()).append (" : ").
+            append (getPercentageByResource (typeResource.name ())).append ("\n") ;
+        }
+        return percentageString ;
+    }
 
+    public String toString (){
+        return "Number of employees by sector : \n"
+                + staffSectorToString () + "\n" + "Number of employees by Country : \n"
+                + staffCountryString () + "\n" + "Turnover by sector : \n"
+                + turnoverSectorString () + "\n" + "Total Company in the Country : \n"
+                + totalCompanyString () + "\n" + "Percentage by resource : \n"
+                + percentageResourceString () + "\n" + "Total cost of transport construction : "
+                + totalCostTransport () + "\n" + "Modern Transportation : \n"
+                + "Modern Transportation in " + country.getCountryName () + " : "
+                + modernTransports () + "\n" ;
+    }
 }
 
 
