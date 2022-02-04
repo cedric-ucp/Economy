@@ -29,6 +29,6 @@ public class Main {
             CountryStats countryStats = new CountryStats (country) ;
             System.out.println (countryStats) ;
         }
-        System.out.println("Test Git 222");
+        System.out.println("Test Git 222dazdaq");
     }
 }
