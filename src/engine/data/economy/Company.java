@@ -48,7 +48,7 @@ public class Company{
     }
 
     public void setTurnover(long turnover) {
-        this.turnover = turnover;
+        this.turnover = turnover ;
     }
 
     public int getTotalCompany() {

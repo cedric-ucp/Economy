@@ -35,7 +35,7 @@ public class Config {
         return (long) (Math.random() * (max + 1 - min)) + min ;
     }
 
-    public enum countryName {CAMEROON , MOROCCO , ALGERIA , CONGO , FRANCE , TUNISIA}
+    public enum countryName {CAMEROON , MOROCCO , ALGERIA , CONGO , FRANCE , TUNISIA , LYBAN}
     public enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS , COBALT}
     public enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}
     public static int maxCountry = getRandomNumber (5 , 10) ;
