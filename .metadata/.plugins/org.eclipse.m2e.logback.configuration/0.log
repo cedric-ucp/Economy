@@ -1,0 +1,7 @@
+2022-02-04 14:59:11,293 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-02-04 15:09:02,550 [ModalContext] INFO  o.a.s.c.u.s.e.EdDSASecurityProviderRegistrar - getOrCreateProvider(EdDSA) created instance of net.i2p.crypto.eddsa.EdDSASecurityProvider
+2022-02-04 15:09:02,643 [ModalContext] INFO  o.a.s.c.i.DefaultIoServiceFactoryFactory - No detected/configured IoServiceFactoryFactory using Nio2ServiceFactoryFactory
+2022-02-04 15:20:53,664 [Worker-18: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[C:\Users\ETAME\git\Economy\.git]
+2022-02-05 12:25:00,095 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-02-05 22:55:35,327 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-02-08 21:45:51,231 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

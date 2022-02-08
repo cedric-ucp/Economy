@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"engine.process.features.screenplay","c":"WarSimulation","l":"changeEconomyCountry(boolean)"},{"p":"engine.process.features.screenplay","c":"WarSimulation","l":"getCountry()"},{"p":"engine.process.features.screenplay","c":"WarSimulation","l":"WarSimulation(Country)","u":"%3Cinit%3E(engine.data.map.Country)"}];updateSearchResults();
