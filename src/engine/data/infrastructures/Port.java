@@ -1,8 +1,9 @@
 package engine.data.infrastructures;
 
 /**
- * @class
- * @classdesc create Port object daughter class of Transport class
+ *  <b>create Port object daughter class of Transport class</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public class Port extends Transport {
     private int totalPorts ;

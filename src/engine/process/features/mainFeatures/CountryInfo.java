@@ -11,13 +11,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @class
- * @classdesc create CountryInfo object that concentrates methods for obtaining information from a country
+ *
+ * <b>CountryInfo concentrates all information needed to know and understand
+ * a country.</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.5
  */
 public class CountryInfo {
     private Country country ;
     private  Config.typeResource [] typeResource ;
 
+    /**
+     * CountryInfo constructor
+     * @param country {Country}
+     */
     public CountryInfo (Country country){
         this.country = country ;
         getNumberCompany () ;
@@ -73,6 +80,11 @@ public class CountryInfo {
         }
         return typeTransport ;
     }
+
+    /**
+     * returns the character string that presents all resources of a country
+     * @return resourceString {StringBuilder}
+     */
     public StringBuilder getTypeResourcesToString (){
         StringBuilder resourceString = new StringBuilder ("Country's resources :\n") ;
         for (Config.typeResource resource : typeResource) {
@@ -80,6 +92,11 @@ public class CountryInfo {
         }
         return resourceString ;
     }
+
+    /**
+     * returns the character string that presents all kind of transport
+     * @return transportString {String}
+     */
     public StringBuilder getTypeTransportToString (){
         StringBuilder transportString = new StringBuilder ("Country's transport :\n") ;
         for (String typeTransport : getTypeTransport ()){

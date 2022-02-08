@@ -12,8 +12,9 @@ import java.util.List ;
 import java.util.Map ;
 
 /**
- * @class
- * @classdesc concentrates methods needed to produce a country’s statistics
+ * <b>Concentrates methods needed to produce a country’s statistics.</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.5
  */
 public class CountryStats{
     private final Country country ;

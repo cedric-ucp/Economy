@@ -1,10 +1,17 @@
 package engine.data.infrastructures;
 
 /**
- * @class
- * @classdesc Abstract class Transport
+ *  <b>Abstract class Transport SUPER CLASS for all transport infrastructures</b>
+ * @see Airport
+ * @see Port
+ * @see Road
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public abstract class Transport {
+    /**
+     * All attributes common for all transport infrastructures
+     */
     private final String type ;
     private boolean modern ;
     private long costBuilding ;

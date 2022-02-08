@@ -1,8 +1,9 @@
 package engine.config;
 
 /**
- * @class
- * @classdesc contains all necessary constants and functions
+ * <b> contains all necessary constants and functions</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 2.1
  */
 
 public class Config {
@@ -13,7 +14,7 @@ public class Config {
      * @return {Integer}
      */
     public static int getRandomNumber(int min, int max) {
-        return (int) (Math.random() * (max + 1 - min)) + min;
+        return (int) (Math.random () * (max - min) + min) ;
     }
     /**
      * generate a random double
@@ -22,7 +23,7 @@ public class Config {
      * @return {Double}
      */
     public static double getRandomNumberDouble (double min , double max){
-        return (Math.random() * (max + 1.0 - min)) + min ;
+        return (Math.random () * (max - min) + min) ;
     }
 
     /**
@@ -32,9 +33,12 @@ public class Config {
      * @return {long}
      */
     public static long getRandomNumberLong (long min , long max){
-        return (long) (Math.random() * (max + 1 - min)) + min ;
+        return (long) (Math.random () * (max - min) + min) ;
     }
 
+    /**
+     * All static parameters that will be used
+     */
     public enum countryName {CAMEROON , MOROCCO , ALGERIA , CONGO , FRANCE , TUNISIA , LYBAN}
     public enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS , COBALT}
     public enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}

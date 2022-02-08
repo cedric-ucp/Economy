@@ -1,8 +1,9 @@
 package engine.data.infrastructures;
 
 /**
- * @class
- * @classdesc create Airport Object daughter Transport class
+ * <b>create Airport Object daughter Transport class</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public class Airport extends Transport {
     private int totalAirports;

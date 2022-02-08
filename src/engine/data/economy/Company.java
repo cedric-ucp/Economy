@@ -3,8 +3,9 @@ package engine.data.economy;
 import engine.config.Config;
 
 /**
- * @class
- * @classdesc create object Company
+ * <b>Create object company</b>>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public class Company{
     private long numberStaff ;
@@ -27,40 +28,40 @@ public class Company{
     }
 
 
-    public long getNumberStaff() {
-        return numberStaff;
+    public long getNumberStaff () {
+        return numberStaff ;
     }
 
-    public void setNumberStaff(long numberStaff) {
-        this.numberStaff = numberStaff;
+    public void setNumberStaff (long numberStaff) {
+        this.numberStaff = numberStaff ;
     }
 
-    public Config.diffSector getSector() {
-        return sector;
+    public Config.diffSector getSector () {
+        return sector ;
     }
 
-    public void setSector(Config.diffSector sector) {
+    public void setSector (Config.diffSector sector) {
         this.sector = sector;
     }
 
-    public long getTurnover() {
+    public long getTurnover () {
         return turnover;
     }
 
-    public void setTurnover(long turnover) {
+    public void setTurnover (long turnover) {
         this.turnover = turnover ;
     }
 
-    public int getTotalCompany() {
-        return totalCompany;
+    public int getTotalCompany () {
+        return totalCompany ;
     }
 
-    public void setTotalCompany(int totalCompany) {
-        this.totalCompany = totalCompany;
+    public void setTotalCompany (int totalCompany) {
+        this.totalCompany = totalCompany ;
     }
 
     @Override
-    public String toString() {
+    public String toString () {
         return "\nCompany{" +
                 "\n\tnumberStaff = " + numberStaff +
                 "\n\tsector = '" + sector.name () + '\'' +

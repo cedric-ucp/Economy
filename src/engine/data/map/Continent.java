@@ -6,8 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @class
- * @classdesc create Continent object
+ *<b>create Continent object</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public class Continent {
     private final String continentName ;

@@ -1,8 +1,9 @@
 package engine.data.infrastructures;
 
 /**
- * @class
- * @classdesc create Road class daughter class of Transport
+ *<b>create Road class daughter class of Transport.</b>
+ * @author ETAME CEDRIC etamecedric7@gmail.com
+ * @version 1.0
  */
 public class Road extends Transport{
     private int mileage ;
