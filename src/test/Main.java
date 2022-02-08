@@ -29,6 +29,6 @@ public class Main {
             CountryStats countryStats = new CountryStats (country) ;
             System.out.println (countryStats) ;
         }
-
+        System.out.println("GIT +++");
     }
 }
