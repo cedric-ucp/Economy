@@ -35,19 +35,19 @@ public class LoadSimulation {
     public void buildTransportEconomy(){
         for (int i = 0 ; i < 3 ; i++){
             switch (Config.getRandomNumber (0, 3)){
-                case 0 -> {
+                case 0 : {
                     int mileage = Config.getRandomNumber (20000, 70000);
                     economy.addTransport (new Road ("Road", i <= 1,
                             Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0, 1.0) ,
                             mileage , (double) Config.countryArea / mileage)) ;
                 }
-                case 1 -> economy.addTransport (new Airport("Airport", i <= 1,
+                case 1 : economy.addTransport (new Airport("Airport", i <= 1,
                         Config.getRandomNumberLong (30000, 450000), Config.getRandomNumberDouble (0.0, 1.0),
                         Config.getRandomNumber (1, 8))) ;
-                case 2 -> economy.addTransport (new Port ("Port", i <= 1,
+                case 2 : economy.addTransport (new Port ("Port", i <= 1,
                         Config.getRandomNumberLong (30000, 450000) , Config.getRandomNumberDouble (0.0, 1.0) ,
                         Config.getRandomNumber (2, 8))) ;
-                default -> {
+                default : {
                 }
             }
         }
