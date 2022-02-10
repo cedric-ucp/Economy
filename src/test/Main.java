@@ -32,7 +32,7 @@ public class Main {
             CountryStats countryStats = new CountryStats (country) ;
             System.out.println (countryStats) ;
         }
-        System.out.println ("\n\n--------------------------Test WarSimulation---------------------------\n\n") ;
+        System.out.println ("\n\n--------------------------Test WarSimulation--------------------------$$-\n\n") ;
         System.out.println("TAILLE DICO : " + countries.size ());
 
         for (Country country : countries.values ()) {

@@ -30,7 +30,7 @@ public class LoadSimulation {
    private final Map<Config.typeResource , Resource> resources = new HashMap <> () ;
 
     /**
-     * allows the creation of transport infrastructures for every country randomly
+     * allows the creation of transport infrastructures for every country randomly %%
      */
     public void buildTransportEconomy(){
         for (int i = 0 ; i < 3 ; i++){
