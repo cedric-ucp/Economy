@@ -17,9 +17,10 @@ public class Dashbord extends JPanel {
 	/**
 	 * 
 	 */
+	private CountryInfo countryInfo;
 	private static final long serialVersionUID = 1L;
 	private Element element = new Element();
-	public LoadSimulation loadSimulation = new LoadSimulation();
+	public LoadSimulation loadSimulation ;
 	Map<Config.countryName, Country> countries;
 
 	/**
@@ -34,7 +35,7 @@ public class Dashbord extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(219, 10, 657, 543);
 		setLayout(null);
-		 setToolTipText("");
+		setToolTipText("");
 	}
 
 	@Override
@@ -53,16 +54,40 @@ public class Dashbord extends JPanel {
 		Rectangle r3 = new Rectangle(50, 250, 200, 200);
 		Rectangle r4 = new Rectangle(250, 250, 200, 200);
 		if (r1.contains(event.getPoint())) {
-			return "Pays 1";
+			for (Country c : countries.values()) {
+				if (c.getCountryName().name().equals("FRANCE")) {
+					countryInfo = new CountryInfo(c);
+					System.out.println(countryInfo);
+					return countryInfo.toString();
+				}
+			}
 		}
 		if (r2.contains(event.getPoint())) {
-			return "Pays 2";
+			for (Country c : countries.values()) {
+				if (c.getCountryName().name().equals("CAMEROON")) {
+					countryInfo = new CountryInfo(c);
+					System.out.println(countryInfo);
+					return countryInfo.toString();
+				}
+			}
 		}
 		if (r3.contains(event.getPoint())) {
-			return "Pays 3";
+			for (Country c : countries.values()) {
+				if (c.getCountryName().name().equals("MOROCCO")) {
+					countryInfo = new CountryInfo(c);
+					System.out.println(countryInfo);
+					return countryInfo.toString();
+				}
+			}
 		}
 		if (r4.contains(event.getPoint())) {
-			return "Pays 4";
+			for (Country c : countries.values()) {
+				if (c.getCountryName().name().equals("ALGERIA")) {
+					countryInfo = new CountryInfo(c);
+					System.out.println(countryInfo);
+					return countryInfo.toString();
+				}
+			}
 		}
 		return null;
 	}

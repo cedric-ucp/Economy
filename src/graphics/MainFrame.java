@@ -11,19 +11,29 @@ import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
 import java.text.AttributedCharacterIterator;
+import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import engine.config.Config;
+import engine.data.map.Country;
+import engine.process.features.mainFeatures.CountryInfo;
+import engine.process.features.screenplay.WarSimulation;
 import engine.process.initialisation.LoadSimulation;
 
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.Box;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainFrame {
 
 	private JFrame frame;
+	private Map<Config.countryName, Country> countries;
+	private CountryInfo countryInfo;
 
 	/**
 	 * Launch the application.
@@ -54,22 +64,37 @@ public class MainFrame {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100,100,900, 600);
+		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel OperationZone = new JPanel();
 		OperationZone.setBounds(10, 10, 199, 543);
 		frame.getContentPane().add(OperationZone);
 		OperationZone.setLayout(null);
-		
+
 		JButton btnSimulationWar = new JButton("Simulation War");
+		String[] countrynames = { "FRANCE", "ALGERIA", "MOROCCO", "CAMEROON" };
+		btnSimulationWar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String c1 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
+				String c2 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
+
+				WarSimulation warSimulation = new WarSimulation(countries.get(c1));
+				warSimulation.changeEconomyCountry(false);
+				WarSimulation warSimulation2 = new WarSimulation(countries.get(c2));
+				warSimulation2.changeEconomyCountry(true);
+
+			}
+		});
 		btnSimulationWar.setBounds(10, 190, 162, 64);
 		OperationZone.add(btnSimulationWar);
-		
-        LoadSimulation loadSimulation = new LoadSimulation () ;
-        loadSimulation.buildContinent () ;
-		
+
+		LoadSimulation loadSimulation = new LoadSimulation();
+		loadSimulation.buildContinent();
+
 		Dashbord dashbord = new Dashbord(loadSimulation);
 		dashbord.setBackground(Color.LIGHT_GRAY);
 		dashbord.setBounds(219, 10, 657, 543);
