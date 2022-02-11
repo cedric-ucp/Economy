@@ -38,8 +38,6 @@ public class Dashbord extends JPanel {
 	        for (Country country : countries.values ()){
 	        	element.paint(country, g);
 	        }
-	        
-		
 	}
 
 }
