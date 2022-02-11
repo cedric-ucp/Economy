@@ -81,7 +81,7 @@ public class MainFrame {
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
 				String c2 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
-
+				
 				WarSimulation warSimulation = new WarSimulation(countries.get(c1));
 				warSimulation.changeEconomyCountry(false);
 				WarSimulation warSimulation2 = new WarSimulation(countries.get(c2));

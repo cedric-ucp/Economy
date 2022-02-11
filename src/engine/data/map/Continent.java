@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class Continent {
     private final String continentName ;
-    private final Map <Config.countryName , Country> countries = new HashMap <> () ;
+    private final Map <String , Country> countries = new HashMap <> () ;
     private final int numberCountry ;
 
     /**
@@ -25,7 +25,7 @@ public class Continent {
         this.numberCountry = numberCountry ;
     }
 
-    public Map <Config.countryName , Country> getCountries() {
+    public Map <String , Country> getCountries() {
         return countries ;
     }
 
@@ -34,7 +34,7 @@ public class Continent {
      * @param country {Country}
      */
     public void addCountry (Country country){
-        countries.put (country.getCountryName () , country) ;
+        countries.put (country.getCountryName().name() , country) ;
     }
 
     public int getNumberCountry() {

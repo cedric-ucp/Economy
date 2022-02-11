@@ -21,7 +21,7 @@ public class Dashbord extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Element element = new Element();
 	public LoadSimulation loadSimulation ;
-	Map<Config.countryName, Country> countries;
+	Map<String, Country> countries;
 
 	/**
 	 * Create the panel.

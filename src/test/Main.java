@@ -19,7 +19,7 @@ public class Main {
         loadSimulation.buildContinent () ;
 
         System.out.println ("\n\n--------------------------Test Infos Pays-----------------------------\n\n") ;
-        Map <Config.countryName, Country> countries = loadSimulation.getContinent ().getCountries () ;
+        Map<String, Country> countries = loadSimulation.getContinent ().getCountries () ;
         System.out.println("taille dico : " + countries.size());
         CountryInfo countryInfo ;
         for (Country country : countries.values ()){
