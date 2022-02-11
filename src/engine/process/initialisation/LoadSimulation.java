@@ -149,12 +149,13 @@ public class LoadSimulation {
      * associated
      */
    public void buildContinent (){
-       continent = new Continent (3 , "CONTINENT") ;
+       continent = new Continent (Config.maxCountry , "CONTINENT") ;
        int numberCountry = continent.getNumberCountry () ;
        for (int i = 0 ; i < numberCountry ; i++){
            Country country = buildCountry () ;
            while (countryExitsInContinent (continent , country)) {
                country = buildCountry () ;
+               System.out.println(country.getCountryName()) ;
            }
            continent.addCountry (country) ;
        }
