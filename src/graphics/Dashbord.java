@@ -2,9 +2,13 @@ package graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Map;
 
 import javax.swing.JPanel;
 
+import engine.config.Config;
+import engine.data.map.Country;
+import engine.process.features.mainFeatures.CountryInfo;
 import engine.process.initialisation.LoadSimulation;
 
 public class Dashbord extends JPanel {
@@ -27,10 +31,14 @@ public class Dashbord extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		element.paint(1, g);
-		element.paint(2, g);
-		element.paint(3, g);
-		element.paint(4, g);
+		loadSimulation.getContinent().getCountries();
+		 Map <Config.countryName, Country> countries = loadSimulation.getContinent ().getCountries () ;
+	        System.out.println("taille dico : " + countries.size());
+	        CountryInfo countryInfo ;
+	        for (Country country : countries.values ()){
+	        	element.paint(country, g);
+	        }
+	        
 		
 	}
 

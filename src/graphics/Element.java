@@ -9,33 +9,34 @@ import java.awt.event.MouseMotionListener;
 import engine.data.map.Country;
 
 public class Element implements MouseMotionListener, MouseListener {
-	public void paint(int numcontry ,Graphics g) {
-		switch (numcontry) {
-		case 1:
+	public void paint(Country c ,Graphics g) {
+		switch (c.getCountryName().name()) {
+		case "FRANCE":
 				g.setColor(Color.blue);
 		      g.fillRect (50, 50, 200, 200);
 		      g.setColor(Color.black);
-		      g.drawString("FRANCE", 125, 150);
+		      g.drawString(c.getCountryName().name(), 125, 150);
+		      
 			break;
-		case 2:
+		case "CAMEROON":
 			g.setColor(Color.red);  
 			g.fillRect (250, 50, 200, 200);
 		      
 		      g.setColor(Color.black);
-		      g.drawString("CHINA", 325, 150);
+		      g.drawString(c.getCountryName().name(), 325, 150);
 		      break;
-		case 3:
+		case "MOROCCO":
 			g.setColor(Color.green);
 		      g.fillRect (50, 250, 200, 200);
 		 
 		      g.setColor(Color.black);
-		      g.drawString("ALGERIA", 125, 350);
+		      g.drawString(c.getCountryName().name(), 125, 350);
 			break;
-		case 4:
+		case "CONGO":
 			g.setColor(Color.yellow);
 		      g.fillRect (250, 250, 200, 200);
 		      g.setColor(Color.black);
-		      g.drawString("MOROCCO", 325, 350);
+		      g.drawString(c.getCountryName().name(), 325, 350);
 			break;
 		default:
 			break;
@@ -63,8 +64,7 @@ public class Element implements MouseMotionListener, MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	@Override
