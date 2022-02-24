@@ -32,7 +32,7 @@ import java.awt.event.ActionEvent;
 public class MainFrame {
 
 	private JFrame frame;
-	private Map<Config.countryName, Country> countries;
+	private Map<String, Country> countries;
 	private CountryInfo countryInfo;
 
 	/**
@@ -75,13 +75,18 @@ public class MainFrame {
 
 		JButton btnSimulationWar = new JButton("Simulation War");
 		String[] countrynames = { "FRANCE", "ALGERIA", "MOROCCO", "CAMEROON" };
+		LoadSimulation loadSimulation = new LoadSimulation();
+		loadSimulation.buildContinent();
+		countries = loadSimulation.getContinent().getCountries();
 		btnSimulationWar.addActionListener(new ActionListener() {
+			private String c1;
+
 			public void actionPerformed(ActionEvent e) {
-				String c1 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+				c1 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
 				String c2 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
-				
+				System.out.println("+++++++++++++++"+c1+"++++++++++");
 				WarSimulation warSimulation = new WarSimulation(countries.get(c1));
 				warSimulation.changeEconomyCountry(false);
 				WarSimulation warSimulation2 = new WarSimulation(countries.get(c2));
@@ -92,12 +97,9 @@ public class MainFrame {
 		btnSimulationWar.setBounds(10, 190, 162, 64);
 		OperationZone.add(btnSimulationWar);
 
-		LoadSimulation loadSimulation = new LoadSimulation();
-		loadSimulation.buildContinent();
+
 
 		Dashbord dashbord = new Dashbord(loadSimulation);
-		dashbord.setBackground(Color.LIGHT_GRAY);
-		dashbord.setBounds(219, 10, 657, 543);
 		frame.getContentPane().add(dashbord);
 	}
 }
