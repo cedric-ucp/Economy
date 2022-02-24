@@ -2,14 +2,7 @@ package graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.geom.Ellipse2D;
-import java.util.Iterator;
-import java.util.Map;
 
-import engine.config.Config;
 import engine.data.map.Country;
 
 public class Element {
@@ -28,12 +21,12 @@ public class Element {
 //		      y=+;
 //		}
 		
-		switch (c.getCountryName().name()) {
+		switch (c.getCountryName ()) {
 		case "FRANCE":
 				g.setColor(Color.blue);
 		      g.fillRect (50, 50, 200, 200);
 		      g.setColor(Color.black);
-		      g.drawString(c.getCountryName().name(), 125, 150);
+		      g.drawString(c.getCountryName() , 125, 150);
 		      
 			break;
 		case "CAMEROON":
@@ -41,20 +34,20 @@ public class Element {
 			g.fillRect (250, 50, 200, 200);
 		      
 		      g.setColor(Color.black);
-		      g.drawString(c.getCountryName().name(), 325, 150);
+		      g.drawString(c.getCountryName() , 325, 150);
 		      break;
 		case "MOROCCO":
 			g.setColor(Color.green);
 		      g.fillRect (50, 250, 200, 200);
 		 
 		      g.setColor(Color.black);
-		      g.drawString(c.getCountryName().name(), 125, 350);
+		      g.drawString(c.getCountryName() , 125, 350);
 			break;
 		case "ALGERIA":
 			g.setColor(Color.yellow);
 		      g.fillRect (250, 250, 200, 200);
 		      g.setColor(Color.black);
-		      g.drawString(c.getCountryName().name(), 325, 350);
+		      g.drawString(c.getCountryName() , 325, 350);
 			break;
 		default:
 			break;

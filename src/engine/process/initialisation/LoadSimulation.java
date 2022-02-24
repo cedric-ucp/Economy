@@ -11,7 +11,6 @@ import engine.data.map.Continent;
 import engine.data.map.Country;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -62,7 +61,7 @@ public class LoadSimulation {
        Config.diffSector [] sectors = Config.diffSector.values () ;
        int index = Config.getRandomNumber (0 , sectors.length - 1) ;
 
-       return new Company (Config.getRandomNumber (200 , 1000) , sectors [index] ,
+       return new Company (Config.getRandomNumber (200 , 1000) , sectors [index].name () ,
                Config.getRandomNumberLong (100000 , 1000000) , Config.maxCompany ) ;
    }
 
@@ -102,7 +101,7 @@ public class LoadSimulation {
                 (-2.0 , 2.0) , Config.getRandomNumber (100000 , 200000)) ;
         buildTransportEconomy () ;
         long allCompanyTurnover = 0 ;
-        for (int i = 0 ; i < Config.maxCompany ; i++){
+        for (int i = 0; i < Config.maxCompany ; i++){
             Company company = buildCompany () ;
             economy.addCompany (company) ;
             allCompanyTurnover += company.getTurnover () ;
@@ -120,7 +119,7 @@ public class LoadSimulation {
        int index = Config.getRandomNumber (0 , countryNames.length) ;
        buildEconomy () ;
        buildResource () ;
-       Country country = new Country (Config.getRandomNumberLong (120000 , 350000) , countryNames [index] ,
+       Country country = new Country (Config.getRandomNumberLong (5200000 , 1000000) , countryNames [index].name () ,
                economy , Config.countryArea) ;
        country.setResources (resources) ;
        resources.clear () ;

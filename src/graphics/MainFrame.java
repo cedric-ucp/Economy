@@ -1,16 +1,6 @@
 package graphics;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Shape;
-import java.awt.Toolkit;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 import java.util.Map;
 
 import javax.swing.JFrame;
@@ -25,7 +15,6 @@ import engine.process.initialisation.LoadSimulation;
 
 import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.Box;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -38,7 +27,7 @@ public class MainFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(java.lang.String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -74,12 +63,12 @@ public class MainFrame {
 		OperationZone.setLayout(null);
 
 		JButton btnSimulationWar = new JButton("Simulation War");
-		String[] countrynames = { "FRANCE", "ALGERIA", "MOROCCO", "CAMEROON" };
+		java.lang.String[] countrynames = { "FRANCE", "ALGERIA", "MOROCCO", "CAMEROON" };
 		btnSimulationWar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String c1 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+				java.lang.String c1 = (java.lang.String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
-				String c2 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+				java.lang.String c2 = (java.lang.String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
 				
 				WarSimulation warSimulation = new WarSimulation(countries.get(c1));

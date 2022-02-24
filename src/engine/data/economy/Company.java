@@ -9,7 +9,7 @@ import engine.config.Config;
  */
 public class Company{
     private long numberStaff ;
-    private Config.diffSector sector  ;
+    private String sector  ;
     private long turnover ;
     private int totalCompany ;
 
@@ -20,7 +20,7 @@ public class Company{
      * @param turnover {long}
      * @param totalCompany {Integer}
      */
-    public Company (int numberStaff , Config.diffSector sector , long turnover , int totalCompany) {
+    public Company (int numberStaff , String sector, long turnover , int totalCompany) {
         this.numberStaff = numberStaff ;
         this.sector = sector ;
         this.turnover = turnover ;
@@ -36,11 +36,11 @@ public class Company{
         this.numberStaff = numberStaff ;
     }
 
-    public Config.diffSector getSector () {
+    public String getSector () {
         return sector ;
     }
 
-    public void setSector (Config.diffSector sector) {
+    public void setSector (String sector) {
         this.sector = sector;
     }
 
@@ -64,12 +64,12 @@ public class Company{
     public String toString () {
         return "\nCompany{" +
                 "\n\tnumberStaff = " + numberStaff +
-                "\n\tsector = '" + sector.name () + '\'' +
+                "\n\tsector = '" + sector + '\'' +
                 "\n\tturnover = " + turnover +
                 "\n\ttotalCompany = " + totalCompany +
                 "}\n" ;
     }
-    public boolean companySectorOf (Config.diffSector sector){
+    public boolean companySectorOf (String sector){
         return this.sector.equals (sector) ;
     }
 

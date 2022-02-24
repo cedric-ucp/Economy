@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JPanel;
@@ -21,7 +22,7 @@ public class Dashbord extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Element element = new Element();
 	public LoadSimulation loadSimulation ;
-	Map<String, Country> countries;
+	Map <String , Country> countries ;
 
 	/**
 	 * Create the panel.
@@ -29,7 +30,7 @@ public class Dashbord extends JPanel {
 	 * @param loadSimulation
 	 */
 
-	public Dashbord(LoadSimulation loadSimulation) {
+	public Dashbord (LoadSimulation loadSimulation) {
 		countries = loadSimulation.getContinent().getCountries();
 		this.loadSimulation = loadSimulation;
 		setBackground(Color.LIGHT_GRAY);
@@ -43,7 +44,7 @@ public class Dashbord extends JPanel {
 		super.paintComponent(g);
 		CountryInfo countryInfo;
 		for (Country country : countries.values()) {
-			element.paint(country, g);
+			element.paint (country , g) ;
 		}
 	}
 
@@ -55,16 +56,16 @@ public class Dashbord extends JPanel {
 		Rectangle r4 = new Rectangle(250, 250, 200, 200);
 		if (r1.contains(event.getPoint())) {
 			for (Country c : countries.values()) {
-				if (c.getCountryName().name().equals("FRANCE")) {
+				if (c.getCountryName ().equals("FRANCE")) {
 					countryInfo = new CountryInfo(c);
 					System.out.println(countryInfo);
-					return countryInfo.toString();
+					return countryInfo.toString () ;
 				}
 			}
 		}
 		if (r2.contains(event.getPoint())) {
 			for (Country c : countries.values()) {
-				if (c.getCountryName().name().equals("CAMEROON")) {
+				if (c.getCountryName ().equals ("CAMEROON")) {
 					countryInfo = new CountryInfo(c);
 					System.out.println(countryInfo);
 					return countryInfo.toString();
@@ -73,7 +74,7 @@ public class Dashbord extends JPanel {
 		}
 		if (r3.contains(event.getPoint())) {
 			for (Country c : countries.values()) {
-				if (c.getCountryName().name().equals("MOROCCO")) {
+				if (c.getCountryName ().equals("MOROCCO")) {
 					countryInfo = new CountryInfo(c);
 					System.out.println(countryInfo);
 					return countryInfo.toString();
@@ -82,7 +83,7 @@ public class Dashbord extends JPanel {
 		}
 		if (r4.contains(event.getPoint())) {
 			for (Country c : countries.values()) {
-				if (c.getCountryName().name().equals("ALGERIA")) {
+				if (c.getCountryName ().equals("ALGERIA")) {
 					countryInfo = new CountryInfo(c);
 					System.out.println(countryInfo);
 					return countryInfo.toString();

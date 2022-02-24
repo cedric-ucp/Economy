@@ -45,6 +45,11 @@ public class Config {
     public static int maxCountry = 4 ;
     public static int maxCompany = getRandomNumber (8 , 10) ;
     public static long countryArea = getRandomNumber (20000 , 80000) ;
+    public static final int WINDOW_WIDTH = 600 ; // On definit la largeur de la fenetre
+    public static final int WINDOW_HEIGHT = 600 ;// On definit la hauteur de notre fenetre
+    public static final int GRILL_SIZE = 100;
+    public static final int LINE_COUNT = WINDOW_HEIGHT / GRILL_SIZE; // hauteur de la fenetre divisee la taille d'un block.
+    public static final int COLUMN_COUNT = WINDOW_WIDTH / GRILL_SIZE ; // largeur de la fenetre divisee par la taille d'un block.
 
 
 }
