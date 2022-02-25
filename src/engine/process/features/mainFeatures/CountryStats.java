@@ -20,7 +20,7 @@ public class CountryStats{
     private final Country country ;
     private final Economy economy ;
     private final List <Company> companies ;
-    private final List <String> sectorsCompany = new ArrayList<> () ;
+    private final List <java.lang.String> sectorsCompany = new ArrayList<> () ;
     /**
      * CountryStats constructor
      * @param country {Country}
@@ -35,9 +35,9 @@ public class CountryStats{
      * allows to get all economic sectors of a country
      * @return sectorsCompany {List <String>}
      */
-    public List <String> getAllSectorsCompany (){
+    public List <java.lang.String> getAllSectorsCompany (){
         for (Company company : companies){
-            String sector = company.getSector ().name () ;
+            java.lang.String sector = company.getSector () ;
             if (!sectorsCompany.contains (sector)){
                 sectorsCompany.add (sector) ;
             }
@@ -49,10 +49,10 @@ public class CountryStats{
      * @param diffSector {Config.diffSector}
      * @return totalStaff {Integer}
      */
-    public int numberStaffBySector (String diffSector){
+    public int numberStaffBySector (java.lang.String diffSector){
         int totalStaff = 0 ;
         for (Company company : companies){
-            if (company.getSector ().equals (Config.diffSector.valueOf (diffSector))){
+            if (company.getSector ().equals (diffSector)){
                 totalStaff += company.getNumberStaff () ;
             }
         }
@@ -76,10 +76,10 @@ public class CountryStats{
      * @param sector {String}
      * @return totalTurnover {long}
      */
-    public long turnoverSector (String sector){
+    public long turnoverSector (java.lang.String sector){
         long totalTurnover = 0 ;
         for (Company company : companies){
-            if (company.getSector ().equals (Config.diffSector.valueOf (sector))){
+            if (company.getSector ().equals (sector)){
                 totalTurnover += company.getTurnover () ;
             }
         }
@@ -91,10 +91,10 @@ public class CountryStats{
      * @param sector {String}
      * @return totalCompany {Integer}
      */
-    public int totalCompanyBySector (String sector){
+    public int totalCompanyBySector (java.lang.String sector){
         int totalCompany = 0 ;
         for (Company company : companies){
-            if (company.getSector ().equals (Config.diffSector.valueOf (sector))){
+            if (company.getSector ().equals (sector)){
                 totalCompany += company.getTotalCompany () ;
             }
         }
@@ -106,7 +106,7 @@ public class CountryStats{
      * @param typeResource {String}
      * @return totalPercentage {double}
      */
-    public double getPercentageByResource (String typeResource){
+    public double getPercentageByResource (java.lang.String typeResource){
         Map <Config.typeResource , Resource> resources = country.getResources () ;
         double totalPercentage = 0.0 ;
         for (Config.typeResource resource : resources.keySet ()){
@@ -156,7 +156,7 @@ public class CountryStats{
      */
     public StringBuilder staffSectorToString (){
         StringBuilder staffString = new StringBuilder () ;
-        for (String sector : getAllSectorsCompany()){
+        for (java.lang.String sector : getAllSectorsCompany()){
             staffString.append (sector).append (" : ").
             append (numberStaffBySector (sector)).append ("\n") ;
         }
@@ -169,8 +169,8 @@ public class CountryStats{
      */
     public StringBuilder staffCountryString (){
         StringBuilder staffString = new StringBuilder ("Number of employees in ") ;
-        staffString.append (country.getCountryName ().name ()).append (" : ").
-        append (staffByCountry ()).append ("\n") ;
+        staffString.append(country.getCountryName ()).append (" : ").append
+                (staffByCountry ()).append ("\n") ;
         return staffString ;
     }
     /**
@@ -180,7 +180,7 @@ public class CountryStats{
      */
     public StringBuilder turnoverSectorString (){
         StringBuilder turnoverString = new StringBuilder () ;
-        for (String sector : getAllSectorsCompany ()){
+        for (java.lang.String sector : getAllSectorsCompany ()){
             turnoverString.append (sector).append (" : ").
             append (turnoverSector (sector)).append ("\n") ;
         }
@@ -193,7 +193,7 @@ public class CountryStats{
      */
     public StringBuilder totalCompanyString (){
         StringBuilder totalString = new StringBuilder () ;
-        for (String sector : getAllSectorsCompany ()){
+        for (java.lang.String sector : getAllSectorsCompany ()){
             totalString.append (sector).append (" : ").
             append (totalCompanyBySector (sector)).append ("\n") ;
         }
@@ -214,7 +214,7 @@ public class CountryStats{
         return percentageString ;
     }
 
-    public String toString (){
+    public java.lang.String toString (){
         return "Number of employees by sector : \n"
                 + staffSectorToString () + "\n" + "Number of employees by Country : \n"
                 + staffCountryString () + "\n" + "Turnover by sector : \n"

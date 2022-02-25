@@ -70,9 +70,9 @@ public class CountryInfo {
      * returns the type or types of transport of a country
      * @return typeTransport {String}
      */
-    public String [] getTypeTransport (){
+    public java.lang.String[] getTypeTransport (){
         List <Transport> transports = country.getEconomy ().getTransports () ;
-        String [] typeTransport = new String [transports.size ()] ;
+        java.lang.String[] typeTransport = new java.lang.String[transports.size ()] ;
         int i = 0 ;
         for (Transport transport : transports){
             typeTransport [i] = transport.getType () ;
@@ -99,12 +99,12 @@ public class CountryInfo {
      */
     public StringBuilder getTypeTransportToString (){
         StringBuilder transportString = new StringBuilder ("Country's transport :\n") ;
-        for (String typeTransport : getTypeTransport ()){
+        for (java.lang.String typeTransport : getTypeTransport ()){
             transportString.append ("\t").append (typeTransport).append ("\n") ;
         }
         return transportString ;
     }
-    public String toString (){
+    public java.lang.String toString (){
         return "CountryInfo : \n" +
                 country.toString (0) + "Total company : " + getNumberCompany ()  + "\n" +
                 getTypeResourcesToString () +

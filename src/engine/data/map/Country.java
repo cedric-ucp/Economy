@@ -18,7 +18,7 @@ public class Country {
      * @see Resource
      * @see Economy
      */
-    private Config.countryName countryName ;
+    private String countryName ;
     private long population ;
     private Map <Config.typeResource , Resource> resources = new HashMap <> () ;
     private Economy economy ;
@@ -27,11 +27,11 @@ public class Country {
     /**
      * Country constructor
      * @param population {long}
-     * @param countryName {Config.countryName}
+     * @param countryName {String}
      * @param economy {Economy}
      * @param countryArea {long}
      */
-    public Country (long population , Config.countryName countryName , Economy economy , long countryArea){
+    public Country (long population , String countryName , Economy economy , long countryArea){
         this.population = population ;
         this.countryName = countryName ;
         this.economy = economy ;
@@ -62,11 +62,11 @@ public class Country {
         this.resources = resources ;
     }
 
-    public Config.countryName getCountryName() {
+    public String getCountryName () {
         return countryName ;
     }
 
-    public void setCountryName(Config.countryName countryName) {
+    public void setCountryName (String countryName) {
         this.countryName = countryName ;
     }
 
@@ -90,15 +90,15 @@ public class Country {
     @Override
     public String toString() {
         return "\nCountry{" +
-                "\n\tcountryName = " + countryName.name () +
+                "\n\tcountryName = " + countryName +
                 "\n\tpopulation = " + population + "\n" +
                 resources + economy +
                 "\n\tcountryArea = " + countryArea +
                 "\n\n----------------------------------------\n\n" ;
     }
-    public String toString (int bis){
+    public java.lang.String toString (int bis){
         return "\nCountry{" +
-                "\n\tcountryName = " + countryName.name () +
+                "\n\tcountryName = " + countryName +
                 "\n\tpopulation = " + population +
                 "\n\tcountryArea = " + countryArea +
                 "\n\tpib = " + economy.getPib () + "\n" ;

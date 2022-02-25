@@ -2,12 +2,16 @@ package graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import engine.config.Config;
@@ -32,7 +36,7 @@ public class Dashbord extends JPanel {
 	 */
 
 	public Dashbord(LoadSimulation loadSimulation) {
-		this.countries=loadSimulation.getContinent().getCountries();
+		this.countries = loadSimulation.getContinent().getCountries();
 		setBackground(Color.blue);
 		setBounds(219, 10, 630, 543);
 		setLayout(null);
@@ -42,7 +46,7 @@ public class Dashbord extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+
 //		CountryInfo countryInfo;
 //		for (Country country : countries.values()) {
 //			element.paint(country, g);
@@ -52,50 +56,57 @@ public class Dashbord extends JPanel {
 		element.paintMorocco(g);
 		element.paintSpain(g);
 		element.paintItaly(g);
-		element.paintAlgeria(g);
+		try {
+			element.paintAlgeria(g);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		element.paintTunisia(g);
 	}
 
+
 	@Override
 	public String getToolTipText(MouseEvent event) {
-		Polygon france=drawCountry.getFRANCE();
-		Polygon algeria=drawCountry.getALGERIA();
-		Polygon tunisia=drawCountry.getTUNISIA();
-		Polygon morocco=drawCountry.getMOROCCO();
-		Polygon cameroon=drawCountry.getCAMEROON();
-		Polygon spain=drawCountry.getSPAIN();
-		Polygon italy=drawCountry.getITALY();
-		
-		if(france.contains(getMousePosition())) {
+		Polygon france = drawCountry.getFRANCE();
+		Polygon algeria = drawCountry.getALGERIA();
+		Polygon tunisia = drawCountry.getTUNISIA();
+		Polygon morocco = drawCountry.getMOROCCO();
+		Polygon cameroon = drawCountry.getCAMEROON();
+		Polygon spain = drawCountry.getSPAIN();
+		Polygon italy = drawCountry.getITALY();
+		if (france.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("FRANCE"));
 			return countryInfo.toString();
 		}
-		if(algeria.contains(getMousePosition())) {
+		if (algeria.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("ALGERIA"));
 			return countryInfo.toString();
 		}
-		if(tunisia.contains(getMousePosition())) {
+		if (tunisia.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("TUNISIA"));
 			return countryInfo.toString();
 		}
-		if(morocco.contains(getMousePosition())) {
+		if (morocco.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("MOROCCO"));
 			return countryInfo.toString();
 		}
-		if(cameroon.contains(getMousePosition())) {
+		if (cameroon.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("CAMEROON"));
 			return countryInfo.toString();
 		}
-		if(spain.contains(getMousePosition())) {
+		if (spain.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("SPAIN"));
 			return countryInfo.toString();
 		}
-		if(italy.contains(getMousePosition())) {
+		if (italy.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("ITALY"));
+
 			return countryInfo.toString();
 		}
-		
+
 		return null;
 	}
 
 }
+

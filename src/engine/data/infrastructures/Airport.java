@@ -16,17 +16,17 @@ public class Airport extends Transport {
      * @param traffic {long}
      * @param totalAirports {Double}
      */
-    public Airport (String type, boolean modern, long costBuilding, double traffic, int totalAirports){
+    public Airport (String type , boolean modern, long costBuilding, double traffic, int totalAirports){
         super (type, modern, costBuilding, traffic) ;
         this.totalAirports = totalAirports ;
     }
 
-    public int getTotalAirports() {
+    public int getTotalAirports () {
         return totalAirports;
     }
 
-    public void setTotalAirports(int totalAirports) {
-        this.totalAirports = totalAirports;
+    public void setTotalAirports (int totalAirports) {
+        this.totalAirports = totalAirports ;
     }
 
     @Override

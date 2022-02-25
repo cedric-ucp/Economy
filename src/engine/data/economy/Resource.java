@@ -52,7 +52,7 @@ public class Resource {
     }
 
     @Override
-    public String toString () {
+    public java.lang.String toString () {
         return "\n\nResources{" +
                 "\n\tresourceType = " + resourceType.name () + '\'' +
                 "\n\tpercentage = " + percentage +

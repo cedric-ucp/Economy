@@ -3,22 +3,18 @@ package graphics;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Polygon;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.geom.Ellipse2D;
-import java.util.Iterator;
-import java.util.Map;
 
-import engine.config.Config;
-import engine.data.map.Country;
+import java.awt.Polygon;
+
+import java.io.IOException;
+
 
 public class Element {
 	private DrawCountry drawCountry = new DrawCountry();
 	private Font bigfont = new Font("countrynames", Font.BOLD, 16);
 	private Font smallFont = new Font("countrynames", Font.BOLD, 14);
 	private Font verySmallFont = new Font("countrynames", Font.BOLD, 12);
+
 
 	public void paintFrance(Graphics g) {
 		Polygon p = drawCountry.getFRANCE();
@@ -38,7 +34,6 @@ public class Element {
 	}
 
 	public void paintMorocco(Graphics g) {
-//		      super.paintComponent(g);
 		Polygon p = drawCountry.getMOROCCO();
 
 		g.setColor(Color.gray);
@@ -49,7 +44,6 @@ public class Element {
 	}
 
 	public void paintSpain(Graphics g) {
-//		      super.paintComponent(g);
 		Polygon p = drawCountry.getSPAIN();
 		g.setColor(Color.red);
 		g.fillPolygon(p);
@@ -59,7 +53,6 @@ public class Element {
 	}
 
 	public void paintItaly(Graphics g) {
-//		      super.paintComponent(g);
 		Polygon p = drawCountry.getITALY();
 
 		g.setColor(Color.yellow);
@@ -69,8 +62,7 @@ public class Element {
 		g.drawString("ITALY", 130, 340);
 	}
 
-	public void paintAlgeria(Graphics g) {
-//		      super.paintComponent(g);
+	public void paintAlgeria(Graphics g) throws IOException {
 		Polygon p = drawCountry.getALGERIA();
 		g.setColor(Color.white);
 		g.fillPolygon(p);
@@ -80,7 +72,6 @@ public class Element {
 	}
 
 	public void paintTunisia(Graphics g) {
-//		      super.paintComponent(g);
 		Polygon p = drawCountry.getTUNISIA();
 
 		g.setColor(Color.orange);

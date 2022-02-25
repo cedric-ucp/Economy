@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import engine.config.Config;
 import engine.data.map.Country;
 import engine.process.features.mainFeatures.CountryInfo;
+import engine.process.features.screenplay.PandemicSimulation;
 import engine.process.features.screenplay.WarSimulation;
 import engine.process.initialisation.LoadSimulation;
 
@@ -64,6 +65,7 @@ public class MainFrame {
 
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("ECO+");
 		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -78,15 +80,14 @@ public class MainFrame {
 		LoadSimulation loadSimulation = new LoadSimulation();
 		loadSimulation.buildContinent();
 		countries = loadSimulation.getContinent().getCountries();
+		
 		btnSimulationWar.addActionListener(new ActionListener() {
-			private String c1;
-
 			public void actionPerformed(ActionEvent e) {
-				c1 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+				String c1 = (String) JOptionPane.showInputDialog(null, "Choise the Winner country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
-				String c2 = (String) JOptionPane.showInputDialog(null, "choise the first country", "War Simulation",
+				String c2 = (String) JOptionPane.showInputDialog(null, "choise the Loser country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
-				System.out.println("+++++++++++++++"+c1+"++++++++++");
+				System.out.println("+++++++++++++++" + c1 + "++++++++++");
 				WarSimulation warSimulation = new WarSimulation(countries.get(c1));
 				warSimulation.changeEconomyCountry(false);
 				WarSimulation warSimulation2 = new WarSimulation(countries.get(c2));
@@ -94,10 +95,21 @@ public class MainFrame {
 
 			}
 		});
-		btnSimulationWar.setBounds(10, 190, 162, 64);
+		
+		btnSimulationWar.setBounds(10, 171, 162, 64);
 		OperationZone.add(btnSimulationWar);
-
-
+		
+		JButton btnSimulationPandimic = new JButton("Pandimic Simulation");
+		btnSimulationPandimic.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        for (Country country : countries.values ()){
+		            PandemicSimulation pandemicSimulation = new PandemicSimulation () ;
+		            pandemicSimulation.changeEconomyCountry (country) ;
+		        }
+			}
+		});
+		btnSimulationPandimic.setBounds(10, 307, 162, 64);
+		OperationZone.add(btnSimulationPandimic);
 
 		Dashbord dashbord = new Dashbord(loadSimulation);
 		frame.getContentPane().add(dashbord);

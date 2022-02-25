@@ -34,7 +34,7 @@ public class Continent {
      * @param country {Country}
      */
     public void addCountry (Country country){
-        countries.put (country.getCountryName().name() , country) ;
+        countries.put (country.getCountryName () , country) ;
     }
 
     public int getNumberCountry() {
