@@ -35,7 +35,8 @@ public class MainFrame {
 	private JFrame frame;
 	private Map<String, Country> countries;
 	private CountryInfo countryInfo;
-
+	private String winner ;
+	private String loser ;
 	/**
 	 * Launch the application.
 	 */
@@ -83,26 +84,26 @@ public class MainFrame {
 		
 		btnSimulationWar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String c1 = (String) JOptionPane.showInputDialog(null, "Choise the Winner country", "War Simulation",
+				winner = (String) JOptionPane.showInputDialog(null, "Choise the Winner country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[1]);
-				String c2 = (String) JOptionPane.showInputDialog(null, "choise the Loser country", "War Simulation",
+				loser = (String) JOptionPane.showInputDialog(null, "choise the Loser country", "War Simulation",
 						JOptionPane.QUESTION_MESSAGE, null, countrynames, countrynames[2]);
-				System.out.println("+++++++++++++++" + c1 + "++++++++++");
-				WarSimulation warSimulation = new WarSimulation(countries.get(c1));
+				WarSimulation warSimulation = new WarSimulation(countries.get(winner));
 				warSimulation.changeEconomyCountry(false);
-				WarSimulation warSimulation2 = new WarSimulation(countries.get(c2));
+				WarSimulation warSimulation2 = new WarSimulation(countries.get(loser));
 				warSimulation2.changeEconomyCountry(true);
-
+//				element.paintWar(g);
 			}
 		});
-		
+
 		btnSimulationWar.setBounds(10, 171, 162, 64);
 		OperationZone.add(btnSimulationWar);
 		
-		JButton btnSimulationPandimic = new JButton("Pandimic Simulation");
+		JButton btnSimulationPandimic = new JButton("Pandemic Simulation");
 		btnSimulationPandimic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		        for (Country country : countries.values ()){
+				int confirm= JOptionPane.showConfirmDialog(null, "WARNING WARNING ! DO YOU REALLY WANNA SPREAD THE VIRUS??", "Pandemic Simulation",JOptionPane.OK_OPTION);			
+				for (Country country : countries.values ()){
 		            PandemicSimulation pandemicSimulation = new PandemicSimulation () ;
 		            pandemicSimulation.changeEconomyCountry (country) ;
 		        }
@@ -114,4 +115,11 @@ public class MainFrame {
 		Dashbord dashbord = new Dashbord(loadSimulation);
 		frame.getContentPane().add(dashbord);
 	}
+	public String getWinner() {
+		return winner;
+	}
+	public String getLoser() {
+		return loser;
+	}
+
 }
