@@ -3,13 +3,13 @@ package graphics;
 import java.awt.Polygon;
 
 public class DrawCountry {
-	private Polygon FRANCE =new Polygon();
-	private Polygon ALGERIA=new Polygon();
-	private Polygon TUNISIA=new Polygon();
-	private Polygon CAMEROON=new Polygon();
-	private Polygon MOROCCO=new Polygon();
-	private Polygon SPAIN=new Polygon();
-	private Polygon ITALY=new Polygon();
+	private Polygon FRANCE = new Polygon();
+	private Polygon ALGERIA = new Polygon();
+	private Polygon TUNISIA = new Polygon();
+	private Polygon CAMEROON = new Polygon();
+	private Polygon MOROCCO = new Polygon();
+	private Polygon SPAIN = new Polygon();
+	private Polygon ITALY = new Polygon();
 
 	public DrawCountry() {
 		// initialise FRANCE points
@@ -87,6 +87,28 @@ public class DrawCountry {
 	}
 
 	public Polygon getFRANCE() {
+		return FRANCE;
+	}
+
+	public Polygon get(String pays) {
+		switch (pays) {
+		case "FRANCE":
+			return FRANCE;
+		case "ALGERIA":
+			return ALGERIA;
+		case "TUNISIA":
+			return TUNISIA;
+		case "CAMEROON":
+			return CAMEROON;
+		case "MOROCCO":
+			return MOROCCO;
+		case "SPAIN":
+			return SPAIN;
+		case "ITALY":
+			return ITALY;
+		default:
+			break;
+		}
 		return FRANCE;
 	}
 

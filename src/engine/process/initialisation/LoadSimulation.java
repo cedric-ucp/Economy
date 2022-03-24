@@ -154,7 +154,7 @@ public class LoadSimulation {
            Country country = buildCountry () ;
            while (countryExitsInContinent (continent , country)) {
                country = buildCountry () ;
-               System.out.println(country.getCountryName()) ;
+//               System.out.println(country.getCountryName()) ;
            }
            continent.addCountry (country) ;
        }

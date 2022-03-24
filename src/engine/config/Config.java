@@ -45,6 +45,12 @@ public class Config {
     public static int maxCountry = 4 ;
     public static int maxCompany = getRandomNumber (8 , 10) ;
     public static long countryArea = getRandomNumber (20000 , 80000) ;
+    public static boolean WAR = false;
+    public static boolean Pandemic = false;
+    public static String WAR_WINNER = "";
+    public static String WAR_LOSER = "";
+    public static int COUNTER_WAR = 0;
+    public static int COUNTER_Pandimec = 0;
     public static final int WINDOW_WIDTH = 600 ; // On definit la largeur de la fenetre
     public static final int WINDOW_HEIGHT = 600 ;// On definit la hauteur de notre fenetre
     public static final int GRILL_SIZE = 100;
