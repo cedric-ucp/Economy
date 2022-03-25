@@ -25,10 +25,10 @@ public abstract class Transport {
      * @param traffic {double}
      */
     public Transport (String type, boolean modern, long costBuilding, double traffic) {
-        this.type = type;
-        this.modern = modern;
-        this.costBuilding = costBuilding;
-        this.traffic = traffic;
+        this.type = type ;
+        this.modern = modern ;
+        this.costBuilding = costBuilding ;
+        this.traffic = traffic ;
     }
 
     public void setTraffic(double traffic) {

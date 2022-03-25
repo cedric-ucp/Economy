@@ -1,14 +1,12 @@
 package graphics;
 
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -35,13 +33,6 @@ public class Dashbord extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Element element = new Element();
 	Map<String, Country> countries;
-	Polygon france = drawCountry.getFRANCE();
-	Polygon algeria = drawCountry.getALGERIA();
-	Polygon tunisia = drawCountry.getTUNISIA();
-	Polygon morocco = drawCountry.getMOROCCO();
-	Polygon cameroon = drawCountry.getCAMEROON();
-	Polygon spain = drawCountry.getSPAIN();
-	Polygon italy = drawCountry.getITALY();
 
 	/**
 	 * Create the panel.
@@ -55,81 +46,6 @@ public class Dashbord extends JPanel {
 		setBounds(219, 10, 630, 543);
 		setLayout(null);
 		setToolTipText("");
-		addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (france.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("FRANCE"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "France",
-							JOptionPane.OK_OPTION);
-				}
-
-				if (algeria.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("ALGERIA"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Algeria",
-							JOptionPane.OK_OPTION);
-				}
-				if (tunisia.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("TUNISIA"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Tunisia",
-							JOptionPane.OK_OPTION);
-				}
-				if (morocco.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("MOROCCO"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Morocco",
-							JOptionPane.OK_OPTION);
-				}
-				if (cameroon.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("CAMEROON"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Cameroon",
-							JOptionPane.OK_OPTION);
-				}
-				if (spain.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("SPAIN"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Spain",
-							JOptionPane.OK_OPTION);
-				}
-				if (italy.contains(getMousePosition())) {
-					countryInfo = new CountryInfo(countries.get("ITALY"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Italy",
-							JOptionPane.OK_OPTION);
-				}
-				
-			}
-		});
-		
 	}
 
 	@Override
@@ -154,18 +70,19 @@ public class Dashbord extends JPanel {
 		element.paintSpain(g);
 		element.paintItaly(g);
 		element.paintTunisia(g);
-		if(Config.WAR) {
-			element.paintWar(g, Config.WAR_WINNER,Config.WAR_LOSER);
-		}
-		if(Config.Pandemic) {
-			element.paintPandimic(g);
-			System.out.println("PANDIMICC");
-		}
+
+		
 	}
-	
+
 	@Override
 	public String getToolTipText(MouseEvent event) {
-
+		Polygon france = drawCountry.getFRANCE();
+		Polygon algeria = drawCountry.getALGERIA();
+		Polygon tunisia = drawCountry.getTUNISIA();
+		Polygon morocco = drawCountry.getMOROCCO();
+		Polygon cameroon = drawCountry.getCAMEROON();
+		Polygon spain = drawCountry.getSPAIN();
+		Polygon italy = drawCountry.getITALY();
 		if (france.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("FRANCE"));
 			return countryInfo.toString();
@@ -192,9 +109,9 @@ public class Dashbord extends JPanel {
 		}
 		if (italy.contains(getMousePosition())) {
 			countryInfo = new CountryInfo(countries.get("ITALY"));
+
 			return countryInfo.toString();
 		}
-		
 
 		return null;
 	}

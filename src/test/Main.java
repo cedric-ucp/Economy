@@ -1,10 +1,7 @@
 package test;
-import engine.config.Config;
 import engine.data.map.Country;
 import engine.process.features.mainFeatures.CountryInfo;
-import engine.process.features.mainFeatures.CountryStats;
-import engine.process.features.screenplay.PandemicSimulation;
-import engine.process.features.screenplay.WarSimulation;
+import engine.process.features.screenplay.EconomicImprovement;
 import engine.process.initialisation.LoadSimulation;
 
 import java.util.Map;
@@ -28,29 +25,15 @@ public class Main {
             System.out.println (countryInfo) ;
         }
 
-        System.out.println ("\n\n--------------------------Test Country Stats---------------------------\n\n") ;
+        EconomicImprovement economicImprovement = new EconomicImprovement (loadSimulation.getContinent ()) ;
         for (Country country : countries.values ()){
-            CountryStats countryStats = new CountryStats (country) ;
-            System.out.println (countryStats) ;
+            economicImprovement.addCountryInvolved (country) ;
         }
-        System.out.println ("\n\n--------------------------Test WarSimulation--------------------------$$-\n\n") ;
-        System.out.println("TAILLE DICO : " + countries.size ());
-
-        for (Country country : countries.values ()) {
-            WarSimulation warSimulation = new WarSimulation (country) ;
-            warSimulation.changeEconomyCountry (false) ;
+        //Vous pouvez tester les differentes ameliorations de l'economie possibles
+        economicImprovement.aidBetweenCountries ();
+        for (Country country : countries.values ()){
             countryInfo = new CountryInfo (country) ;
             System.out.println (countryInfo) ;
         }
-
-        System.out.println ("\n\n----------------------------Test pandemicSimulation----------------------------\n\n");
-
-        for (Country country : countries.values ()){
-            PandemicSimulation pandemicSimulation = new PandemicSimulation () ;
-            pandemicSimulation.changeEconomyCountry (country) ;
-            countryInfo = new CountryInfo (country) ;
-            System.out.println (countryInfo) ;
-        }
-
     }
 }

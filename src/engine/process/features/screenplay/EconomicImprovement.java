@@ -19,7 +19,6 @@ public class EconomicImprovement {
     private Continent continent ;
     private final List <Country> countries = new ArrayList <> () ;
 
-
     /**
      * EconomicImprovement constructor
      * @param continent {Continent}

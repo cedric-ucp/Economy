@@ -6,7 +6,7 @@ package engine.data.infrastructures;
  * @version 1.0
  */
 public class Airport extends Transport {
-    private int totalAirports;
+    private int totalAirports ;
 
     /**
      * Airport constructor
@@ -30,7 +30,7 @@ public class Airport extends Transport {
     }
 
     @Override
-    public String toString() {
+    public String toString () {
         return super.toString () + "\n\ttotalAirports = " + totalAirports + "}" ;
     }
 }

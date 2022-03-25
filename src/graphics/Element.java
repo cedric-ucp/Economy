@@ -11,15 +11,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import engine.config.Config;
 
 public class Element {
 	private DrawCountry drawCountry = new DrawCountry();
 	private Font bigfont = new Font("countrynames", Font.BOLD, 16);
 	private Font smallFont = new Font("countrynames", Font.BOLD, 14);
 	private Font verySmallFont = new Font("countrynames", Font.BOLD, 12);
-	private BufferedImage img,imggreen;
 
+	private BufferedImage image;
 	public void paintFrance(Graphics g) {
 		Polygon p = drawCountry.getFRANCE();
 		g.setColor(Color.white);
@@ -90,42 +89,6 @@ public class Element {
 		g.drawPolygon(p);
 		g.drawString("TUNISIA", 550, 130);
 	}
-
-	public void paintWar(Graphics g, String Country1, String Country2) {
-		Polygon c1 = drawCountry.get(Country1);
-		Polygon c2 = drawCountry.get(Country2);
-		if (Config.COUNTER_WAR % 2 == 0) {
-			g.setColor(Color.green);
-			g.fillPolygon(c1);
-		} else {
-			g.setColor(Color.red);
-			g.fillPolygon(c2);
-		}
-	}
-
-	public void paintPandimic(Graphics g) {
-		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/engine/config/virus.png"));
-			imggreen = ImageIO.read(getClass().getResourceAsStream("/engine/config/virus2.png"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if (Config.COUNTER_Pandimec % 5 == 0) {
-			g.drawImage(img, 200, 100, null);
-			g.drawImage(imggreen, 300, 100, null);
-		} else if(Config.COUNTER_Pandimec % 3 == 1) {
-			g.drawImage(img, 200, 300, null);
-			g.drawImage(imggreen, 300, 150, null);
-		}else if(Config.COUNTER_Pandimec % 3 == 2){
-			g.drawImage(img, 400, 300, null);
-			g.drawImage(imggreen, 150, 150, null);
-		}else {
-			g.drawImage(img, 500, 100, null);
-			g.drawImage(imggreen, 90, 260, null);
-		}
-	}
-
 //	public void paintWar(Graphics g,Polygon winner,Polygon loser) throws InterruptedException {
 //        for (int i = 0; i <6; i++) {
 //               //Pause for 0.5 seconds
@@ -166,5 +129,5 @@ public class Element {
 ////           g.setColor(Color.red);
 ////           g.fillPolygon(loser);
 ////        }
-
+	
 }

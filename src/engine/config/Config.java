@@ -39,7 +39,7 @@ public class Config {
     /**
      * All static parameters that will be used
      */
-    public enum countryName {CAMEROON , MOROCCO , ALGERIA , FRANCE }
+    public enum countryName {CAMEROON , MOROCCO , ALGERIA , FRANCE ,  ITALY , SPAIN , CONGO , TUNISIA}
     public enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS , COBALT}
     public enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}
     public static int maxCountry = 4 ;
