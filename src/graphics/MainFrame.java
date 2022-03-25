@@ -6,8 +6,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import engine.config.Config;
+import engine.data.map.Continent;
 import engine.data.map.Country;
 import engine.process.features.mainFeatures.CountryInfo;
+import engine.process.features.screenplay.EconomicImprovement;
 import engine.process.features.screenplay.PandemicSimulation;
 import engine.process.features.screenplay.WarSimulation;
 import engine.process.initialisation.LoadSimulation;
@@ -25,11 +27,13 @@ public class MainFrame extends JFrame implements Runnable {
 	private Element element = new Element();
 	private JFrame frame;
 	private Map<String, Country> countries;
+	
 	private CountryInfo countryInfo;
 	private boolean war;
 	private Dashbord dashbord;
 	private JButton btnSimulationWar;
 	private JButton btnSimulationPandimic;
+	private JButton btnImprovment;
 
 	/**
 	 * Launch the application.
@@ -53,12 +57,51 @@ public class MainFrame extends JFrame implements Runnable {
 		OperationZone.setBounds(10, 10, 199, 543);
 		add(OperationZone);
 		OperationZone.setLayout(null);
-
-		btnSimulationWar = new JButton("Simulation War");
-		String[] countrynames = { "ALGERIA", "CAMEROON", "FRANCE", "ITALY", "MOROCCO", "SPAIN", "TUNISIA" };
+		
 		LoadSimulation loadSimulation = new LoadSimulation();
 		loadSimulation.buildContinent();
+		Continent continent = loadSimulation.getContinent();
 		countries = loadSimulation.getContinent().getCountries();
+		EconomicImprovement economicImprovement = new EconomicImprovement(continent);
+		for (Country country : countries.values()) {
+			economicImprovement.addCountryInvolved(country);
+		}
+		
+		btnImprovment = new JButton("Improvment");
+		String[] improvments = {"Infrastructure Improvement","Inter-country Mutual Help","Trading"};
+		btnImprovment.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String resultImrpovment = (String) JOptionPane.showInputDialog(null, "Choise the economic imrovmemnt",
+						"Economic imrovment", JOptionPane.QUESTION_MESSAGE, null, improvments, improvments[0]);
+				switch (resultImrpovment) {
+				case "Infrastructure Improvement":
+					economicImprovement.infrastructureImprovement();
+					break;
+				case  "Inter-country Mutual Help":
+					economicImprovement.aidBetweenCountries();
+					break;
+				case "Trading":
+					economicImprovement.countryTrade();
+					break;
+					
+				default:
+					
+					break;
+				}
+
+				
+				
+			}
+		});
+
+		btnImprovment.setBounds(10, 71, 162, 64);
+		OperationZone.add(btnImprovment);
+		
+		btnSimulationWar = new JButton("Simulation War");
+		String[] countrynames = { "ALGERIA", "CAMEROON", "FRANCE", "ITALY", "MOROCCO", "SPAIN", "TUNISIA" };
+
 
 		btnSimulationWar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +121,7 @@ public class MainFrame extends JFrame implements Runnable {
 			}
 		});
 
-		btnSimulationWar.setBounds(10, 171, 162, 64);
+		btnSimulationWar.setBounds(10, 190, 162, 64);
 		OperationZone.add(btnSimulationWar);
 
 		btnSimulationPandimic = new JButton("Pandemic Simulation");
