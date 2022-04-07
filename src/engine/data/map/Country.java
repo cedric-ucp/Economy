@@ -87,21 +87,13 @@ public class Country {
     }
 
 
-    @Override
-    public String toString() {
-        return "\nCountry{" +
-                "\n\tcountryName = " + countryName +
-                "\n\tpopulation = " + population + "\n" +
-                resources + economy +
-                "\n\tcountryArea = " + countryArea +
-                "\n\n----------------------------------------\n\n" ;
-    }
-    public java.lang.String toString (int bis){
-        return "\nCountry{" +
-                "\n\tcountryName = " + countryName +
-                "\n\tpopulation = " + population +
-                "\n\tcountryArea = " + countryArea +
-                "\n\tpib = " + economy.getPib () + "\n" ;
+
+    public String toString (int bis){
+        return "\nCountry : " +
+                countryName +
+                "\n\t Population : " + population +
+                "\n\t Area : " + countryArea +
+                "\n\t PIB : " + economy.getPib () + "\n" ;
 
     }
 }

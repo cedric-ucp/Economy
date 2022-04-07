@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Extern"/>
 	<classpathentry kind="output" path="out/production/Economy"/>
 </classpath>

@@ -98,7 +98,7 @@ public class LoadSimulation {
      */
     public void buildEconomy (){
         economy = new Economy (Config.getRandomNumberDouble
-                (-2.0 , 2.0) , Config.getRandomNumber (100000 , 200000)) ;
+                (-2.0 , 2.0) , Config.getRandomNumber (1000000 , 2000000)) ;
         buildTransportEconomy () ;
         long allCompanyTurnover = 0 ;
         for (int i = 0; i < Config.maxCompany ; i++){

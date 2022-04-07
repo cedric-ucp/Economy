@@ -5,6 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.entity.JFreeChartEntity;
+
 import engine.config.Config;
 import engine.data.map.Continent;
 import engine.data.map.Country;
@@ -13,6 +18,7 @@ import engine.process.features.screenplay.EconomicImprovement;
 import engine.process.features.screenplay.PandemicSimulation;
 import engine.process.features.screenplay.WarSimulation;
 import engine.process.initialisation.LoadSimulation;
+
 
 import javax.swing.JButton;
 import java.awt.Color;
@@ -34,6 +40,10 @@ public class MainFrame extends JFrame implements Runnable {
 	private JButton btnSimulationWar;
 	private JButton btnSimulationPandimic;
 	private JButton btnImprovment;
+	private ChartPanel chartPanel;
+//	private JFreeChart chart;
+//	private ChartManager chartManager;
+	EcoGraphics ecoGraphics;
 
 	/**
 	 * Launch the application.
@@ -49,13 +59,13 @@ public class MainFrame extends JFrame implements Runnable {
 
 	private void initialize() {
 		Container frame = getContentPane();
-		setBounds(100, 100, 900, 600);
+		setBounds(50, 100, 1460, 660);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
 		JPanel OperationZone = new JPanel();
 		OperationZone.setBounds(10, 10, 199, 543);
-		add(OperationZone);
+		getContentPane().add(OperationZone);
 		OperationZone.setLayout(null);
 		
 		LoadSimulation loadSimulation = new LoadSimulation();
@@ -66,11 +76,9 @@ public class MainFrame extends JFrame implements Runnable {
 		for (Country country : countries.values()) {
 			economicImprovement.addCountryInvolved(country);
 		}
-		
 		btnImprovment = new JButton("Improvment");
 		String[] improvments = {"Infrastructure Improvement","Inter-country Mutual Help","Trading"};
 		btnImprovment.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String resultImrpovment = (String) JOptionPane.showInputDialog(null, "Choise the economic imrovmemnt",
@@ -89,10 +97,7 @@ public class MainFrame extends JFrame implements Runnable {
 				default:
 					
 					break;
-				}
-
-				
-				
+				}				
 			}
 		});
 
@@ -123,11 +128,15 @@ public class MainFrame extends JFrame implements Runnable {
 
 		btnSimulationWar.setBounds(10, 190, 162, 64);
 		OperationZone.add(btnSimulationWar);
-
+	
+		ecoGraphics = new EcoGraphics(loadSimulation);
+		getContentPane().add(ecoGraphics);
+		ecoGraphics.setVisible(true);
 		btnSimulationPandimic = new JButton("Pandemic Simulation");
 		btnSimulationPandimic.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-
+				
 				int confirm = JOptionPane.showConfirmDialog(null,
 						"WARNING WARNING ! DO YOU REALLY WANNA SPREAD THE VIRUS??", "Pandemic Simulation",
 						JOptionPane.OK_OPTION);
@@ -147,7 +156,20 @@ public class MainFrame extends JFrame implements Runnable {
 		OperationZone.add(btnSimulationPandimic);
 
 		dashbord = new Dashbord(loadSimulation);
-		add(dashbord);
+		getContentPane().add(dashbord);
+		
+
+		
+//		ChartManager chartManager = new ChartManager(loadSimulation); 
+//		chart = chartManager.getPibBar();
+//		chartPanel = new ChartPanel(chart);
+//		
+//		
+//		getContentPane().add(chartPanel);
+//		chartPanel.setBounds(850, 10,300, 300);
+		
+		//chartPanel.setVisible(true);
+
 
 		setVisible(true);
 	}
@@ -165,21 +187,22 @@ public class MainFrame extends JFrame implements Runnable {
 			btnSimulationPandimic.setVisible(true);
 			Config.Pandemic = false;
 		}
-
 	}
+
 
 	@Override
 	public void run() {
 		while (true) {
 			try {
-				Thread.sleep(500);
+				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
 			}
+			ecoGraphics.update();
+			ecoGraphics.repaint();
 			dashbord.repaint();
 			decount();
 		}
 
 	}
-
 }

@@ -105,10 +105,8 @@ public class CountryInfo {
         return transportString ;
     }
     public java.lang.String toString (){
-        return "CountryInfo : \n" +
-                country.toString (0) + "Total company : " + getNumberCompany ()  + "\n" +
-                getTypeResourcesToString () +
-                getTypeTransportToString () + "\n" ;
+        return
+                country.toString(0) + " Total company : " + getNumberCompany ()  + "\n" ;
     }
 
 

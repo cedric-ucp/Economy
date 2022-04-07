@@ -52,7 +52,7 @@ public class Dashbord extends JPanel {
 	public Dashbord(LoadSimulation loadSimulation) {
 		this.countries = loadSimulation.getContinent().getCountries();
 		setBackground(new Color(153, 204, 255));
-		setBounds(219, 10, 630, 543);
+		setBounds(190, 10, 630, 600);
 		setLayout(null);
 		setToolTipText("");
 		addMouseListener(new MouseListener() {
@@ -92,39 +92,41 @@ public class Dashbord extends JPanel {
 
 				if (algeria.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("ALGERIA"));
-					int confirm = JOptionPane.showConfirmDialog(null,
-							countryInfo, "Algeria",
-							JOptionPane.OK_OPTION);
+					JOptionPane.showMessageDialog(null,
+							countryInfo.toString(), "Algeria",
+							JOptionPane.CLOSED_OPTION);
 				}
 				if (tunisia.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("TUNISIA"));
-					int confirm = JOptionPane.showConfirmDialog(null,
+					JOptionPane.showMessageDialog(null,
 							countryInfo, "Tunisia",
-							JOptionPane.OK_OPTION);
+							JOptionPane.CLOSED_OPTION);
 				}
 				if (morocco.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("MOROCCO"));
-					int confirm = JOptionPane.showConfirmDialog(null,
+					JOptionPane.showMessageDialog(null,
 							countryInfo, "Morocco",
-							JOptionPane.OK_OPTION);
+							JOptionPane.CLOSED_OPTION);
 				}
 				if (cameroon.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("CAMEROON"));
-					int confirm = JOptionPane.showConfirmDialog(null,
+					JOptionPane.showMessageDialog(null,
 							countryInfo, "Cameroon",
-							JOptionPane.OK_OPTION);
+							JOptionPane.CLOSED_OPTION);
 				}
 				if (spain.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("SPAIN"));
-					int confirm = JOptionPane.showConfirmDialog(null,
+					JOptionPane.showMessageDialog(null,
 							countryInfo, "Spain",
-							JOptionPane.OK_OPTION);
+							JOptionPane.CLOSED_OPTION);
 				}
 				if (italy.contains(getMousePosition())) {
 					countryInfo = new CountryInfo(countries.get("ITALY"));
-					int confirm = JOptionPane.showConfirmDialog(null,
+					JOptionPane.showMessageDialog(null,
 							countryInfo, "Italy",
-							JOptionPane.OK_OPTION);
+							JOptionPane.INFORMATION_MESSAGE);
+					
+					
 				}
 				
 			}
