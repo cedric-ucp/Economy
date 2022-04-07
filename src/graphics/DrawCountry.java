@@ -88,6 +88,7 @@ public class DrawCountry {
 
 	public Polygon getFRANCE() {
 		return FRANCE;
+	//france
 	}
 
 	public Polygon get(String pays) {
