@@ -39,10 +39,10 @@ public class Config {
     /**
      * All static parameters that will be used
      */
-    public enum countryName {CAMEROON , MOROCCO , ALGERIA , FRANCE }
+    public enum countryName {CAMEROON , MOROCCO , ALGERIA , FRANCE , SPAIN, ITALY,TUNISIA }
     public enum typeResource {GOLD , DIAMOND , WOOD , COTTON , PETROL , COAL , GAS , COBALT}
     public enum diffSector  {AGRICULTURE , INDUSTRIAL , SERVICE , TECH}
-    public static int maxCountry = 4 ;
+    public static int maxCountry = 7 ;
     public static int maxCompany = getRandomNumber (8 , 10) ;
     public static long countryArea = getRandomNumber (20000 , 80000) ;
     public static boolean WAR = false;
